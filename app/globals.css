@@ -1,0 +1,199 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-navy: #0B0E1A;
+  --color-navy-surface: #141729;
+  --color-navy-border: #1E2235;
+  --color-bone: #F4EFE6;
+  --color-bone-dim: #E8E2D9;
+  --color-coral: #E8452A;
+  --color-teal: #1A9B8C;
+  /* muted is used on the dark (navy) sections — lightened from #6B7280 to clear
+     WCAG AA (≈6:1 on navy). Light/bone sections use --color-ink-muted instead. */
+  --color-muted: #8A92A4;
+  --color-ink-muted: #52525B;
+  --color-off-white: #FAFAF8;
+
+  /* Fonts */
+  --font-display: var(--font-plus-jakarta), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
+  --font-mono: var(--font-jetbrains), monospace;
+}
+
+/* Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #0B0E1A;
+  color: #FAFAF8;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 18px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 80ms; }
+.reveal-delay-2 { transition-delay: 160ms; }
+.reveal-delay-3 { transition-delay: 240ms; }
+.reveal-delay-4 { transition-delay: 320ms; }
+.reveal-delay-5 { transition-delay: 400ms; }
+.reveal-delay-6 { transition-delay: 480ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* Typography utilities */
+.font-display { font-family: var(--font-plus-jakarta), sans-serif; }
+.font-mono-custom { font-family: var(--font-jetbrains), monospace; }
+.tabular { font-variant-numeric: tabular-nums; font-feature-settings: "tnum"; }
+
+/* Section label */
+.section-label {
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #8A92A4;
+}
+
+/* Keyboard focus — visible on both dark and light sections */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #E8452A;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Pills */
+.pill-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background-color: #1A9B8C;
+  color: #fff;
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 2px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.pill-next {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 1.5px solid #6B7280;
+  color: #6B7280;
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 2px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.tag-measured {
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 11px;
+  font-weight: 600;
+  color: #E8452A;
+}
+.tag-modeled {
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 11px;
+  font-weight: 400;
+  color: #6B7280;
+}
+
+/* Stat number */
+.stat-number {
+  font-family: var(--font-plus-jakarta), sans-serif;
+  font-size: clamp(40px, 5vw, 72px);
+  font-weight: 800;
+  line-height: 1;
+  color: #E8452A;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Gradient divider */
+.divider-glow {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #1E2235 20%, #1E2235 80%, transparent);
+}
+
+/* If JS is disabled the IntersectionObserver never runs — never hide content. */
+.no-js .reveal { opacity: 1; transform: none; }
+
+/* ------------------------------------------------------------------ */
+/* Print — render the page as a pitch deck: one section per landscape  */
+/* page, brand backgrounds preserved, animations neutralised.          */
+/* ------------------------------------------------------------------ */
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 0;
+  }
+
+  html { font-size: 13px; }
+
+  /* Keep the dark/coral brand fills instead of letting the browser
+     strip backgrounds to save ink. */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Reveal every animated element — nothing stays hidden on paper. */
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* One section = one slide. */
+  main > section,
+  main > footer {
+    break-after: page;
+    break-inside: avoid;
+    min-height: auto !important;
+    padding: 8mm 14mm !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  main > footer { break-after: auto; }
+
+  /* The hero is a full slide. */
+  main > section:first-child { min-height: 100vh; }
+
+  /* Rein in fluid (clamp/vw) headings so a slide fits one page. */
+  h1 { font-size: 40px !important; line-height: 1.05 !important; }
+  h2 { font-size: 30px !important; line-height: 1.1 !important; }
+  h3 { font-size: 20px !important; }
+
+  /* Don't split a card across two pages. */
+  .print-keep { break-inside: avoid; }
+
+  /* Hide purely on-screen affordances. */
+  .no-print { display: none !important; }
+}
