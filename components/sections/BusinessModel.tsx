@@ -46,7 +46,7 @@ const panels = [
 
 export function BusinessModel() {
   return (
-    <section className="bg-bone py-32 px-8 md:px-16">
+    <section className="slide bg-bone px-8 md:px-16">
       <div className="max-w-6xl mx-auto">
         <RevealWrapper>
           <div className="section-label mb-6 reveal" style={{ color: '#52525B' }}>
@@ -61,7 +61,7 @@ export function BusinessModel() {
             and an account that{' '}
             <span style={{ color: '#E8452A' }}>compounds 10×.</span>
           </h2>
-          <p className="text-lg leading-relaxed max-w-2xl mb-16 reveal reveal-delay-2" style={{ color: '#52525B' }}>
+          <p className="text-lg leading-relaxed max-w-2xl mb-10 reveal reveal-delay-2" style={{ color: '#52525B' }}>
             Land a 1–3M sq ft pilot, capture the 25–50M sq ft portfolio.
             Both flagships are already expanding. That&apos;s net revenue retention above 100%.
           </p>
@@ -69,7 +69,7 @@ export function BusinessModel() {
 
         {/* Staircase */}
         <RevealWrapper>
-          <div className="flex flex-col sm:flex-row sm:items-end gap-4 mb-16 reveal reveal-delay-1">
+          <div className="flex flex-col sm:flex-row sm:items-end gap-4 mb-10 reveal reveal-delay-1">
             {stages.map((s, i) => (
               <div key={s.label} className="flex-1 print-keep">
                 <div

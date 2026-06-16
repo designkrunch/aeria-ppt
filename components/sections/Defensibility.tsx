@@ -67,7 +67,7 @@ export function Defensibility() {
   });
 
   return (
-    <section className="bg-navy py-32 px-8 md:px-16">
+    <section className="slide bg-navy px-8 md:px-16">
       <div className="max-w-6xl mx-auto">
         <RevealWrapper>
           <div className="section-label mb-6 reveal">Defensibility</div>
@@ -80,13 +80,13 @@ export function Defensibility() {
             and why a model{' '}
             <span className="text-coral">can&apos;t copy it.</span>
           </h2>
-          <p className="text-muted text-lg max-w-2xl mb-16 reveal reveal-delay-2">
+          <p className="text-muted text-lg max-w-2xl mb-6 reveal reveal-delay-2">
             Anyone can call an LLM; no one can shortcut turnstile integrations,
             3-year developer contracts, and cross-portfolio data.
           </p>
         </RevealWrapper>
 
-        <div className="grid lg:grid-cols-2 gap-12 mb-16">
+        <div className="grid lg:grid-cols-2 gap-8 mb-8">
           {/* Flywheel visual */}
           <RevealWrapper>
             <div
@@ -94,7 +94,7 @@ export function Defensibility() {
             >
               <div className="section-label mb-6">The data flywheel</div>
               {/* Flywheel — labelled stages on a clockwise ring */}
-              <div className="relative mx-auto w-full" style={{ maxWidth: 380, aspectRatio: '1 / 1' }}>
+              <div className="relative mx-auto w-full" style={{ maxWidth: 330, aspectRatio: '1 / 1' }}>
                 <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full" aria-hidden="true">
                   <defs>
                     {[
@@ -187,16 +187,16 @@ export function Defensibility() {
 
           {/* Moats grid */}
           <RevealWrapper>
-            <div className="grid grid-cols-1 gap-4 reveal reveal-delay-2">
+            <div className="grid grid-cols-1 gap-2 reveal reveal-delay-2">
               {moats.map((m, i) => (
                 <div
                   key={m.n}
-                  className={`flex gap-5 rounded-xl border border-navy-border bg-navy-surface p-5 reveal-delay-${i + 1}`}
+                  className={`flex gap-4 rounded-xl border border-navy-border bg-navy-surface px-4 py-2.5 reveal-delay-${i + 1}`}
                 >
                   <div className="section-label text-coral shrink-0 pt-0.5">{m.n}</div>
                   <div>
-                    <div className="font-display font-bold text-off-white text-sm mb-1">{m.name}</div>
-                    <div className="text-muted text-sm leading-relaxed">{m.desc}</div>
+                    <div className="font-display font-bold text-off-white text-sm mb-0.5">{m.name}</div>
+                    <div className="text-muted text-sm leading-snug">{m.desc}</div>
                   </div>
                 </div>
               ))}
@@ -207,7 +207,7 @@ export function Defensibility() {
         {/* Bottom answer strip */}
         <RevealWrapper>
           <div
-            className="rounded-2xl p-8 reveal reveal-delay-3"
+            className="rounded-2xl px-6 py-4 reveal reveal-delay-3"
             style={{ backgroundColor: '#141729', border: '1px solid #1E2235' }}
           >
             <p className="font-display font-bold text-off-white text-lg leading-relaxed mb-2">

@@ -42,7 +42,7 @@ const founders = [
 
 export function Team() {
   return (
-    <section className="bg-bone py-32 px-8 md:px-16">
+    <section className="slide bg-bone px-8 md:px-16">
       <div className="max-w-6xl mx-auto">
         <RevealWrapper>
           <div className="section-label mb-6 reveal" style={{ color: '#52525B' }}>

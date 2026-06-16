@@ -24,10 +24,10 @@ export function AreaChart({
   fillFrom = 'rgba(232,69,42,0.28)',
 }: AreaChartProps) {
   const W = 640;
-  const H = 260;
+  const H = 152;
   const padX = 16;
-  const padTop = 46; // headroom so the peak callout label never clips
-  const padBottom = 34;
+  const padTop = 30; // headroom so the peak callout label never clips
+  const padBottom = 20;
   const plotW = W - padX * 2;
   const plotH = H - padTop - padBottom;
 

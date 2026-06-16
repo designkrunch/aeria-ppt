@@ -26,7 +26,7 @@ const prestige = [
 
 export function Proof() {
   return (
-    <section className="bg-bone py-32 px-8 md:px-16">
+    <section className="slide bg-bone px-8 md:px-16">
       <div className="max-w-6xl mx-auto">
         <RevealWrapper>
           <div className="section-label mb-6 reveal" style={{ color: '#52525B' }}>
@@ -41,27 +41,27 @@ export function Proof() {
             <br />
             tech campuses.
           </h2>
-          <p className="text-lg leading-relaxed max-w-2xl mb-20 reveal reveal-delay-2" style={{ color: '#52525B' }}>
+          <p className="text-lg leading-relaxed max-w-2xl mb-8 reveal reveal-delay-2" style={{ color: '#52525B' }}>
             Not a pilot story. Two marquee developers, 10.5 million square feet live.
           </p>
         </RevealWrapper>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
+        <div className="grid md:grid-cols-2 gap-6 mb-6">
           {/* Brigade */}
           <RevealWrapper>
             <div className="reveal reveal-delay-1">
               <div
-                className="rounded-2xl p-8 mb-5"
+                className="rounded-2xl p-6 mb-4"
                 style={{ background: 'linear-gradient(135deg, #141729 0%, #1A1E35 100%)', border: '1px solid #1E2235' }}
               >
                 <div className="section-label mb-2" style={{ color: '#1A9B8C' }}>Live</div>
                 <h3 className="font-display font-bold text-off-white text-2xl mb-1">
                   Brigade Tech Garden
                 </h3>
-                <p className="text-muted text-sm mb-8">Bengaluru, Karnataka</p>
+                <p className="text-muted text-sm mb-5">Bengaluru, Karnataka</p>
 
                 {/* Before/after hero */}
-                <div className="rounded-xl p-5 mb-6" style={{ backgroundColor: '#0B0E1A' }}>
+                <div className="rounded-xl p-4 mb-4" style={{ backgroundColor: '#0B0E1A' }}>
                   <div className="section-label mb-3">Check-in time</div>
                   <div className="flex items-center gap-4">
                     <div className="text-muted line-through text-2xl font-display font-bold">10 min</div>
@@ -93,17 +93,17 @@ export function Proof() {
           <RevealWrapper>
             <div className="reveal reveal-delay-2">
               <div
-                className="rounded-2xl p-8 mb-5"
+                className="rounded-2xl p-6 mb-4"
                 style={{ background: 'linear-gradient(135deg, #141729 0%, #1A1E35 100%)', border: '1px solid #1E2235' }}
               >
                 <div className="section-label mb-2" style={{ color: '#1A9B8C' }}>Live</div>
                 <h3 className="font-display font-bold text-off-white text-2xl mb-1">
                   Prestige Tech Park
                 </h3>
-                <p className="text-muted text-sm mb-8">Bengaluru, Karnataka</p>
+                <p className="text-muted text-sm mb-5">Bengaluru, Karnataka</p>
 
                 {/* Hero metric */}
-                <div className="rounded-xl p-5 mb-6" style={{ backgroundColor: '#0B0E1A' }}>
+                <div className="rounded-xl p-4 mb-4" style={{ backgroundColor: '#0B0E1A' }}>
                   <div className="section-label mb-3">F&B Revenue (6 months)</div>
                   <div className="text-coral text-4xl font-display font-extrabold">₹14.56L</div>
                   <p className="text-muted text-sm mt-2">50% from brand-new users. Commerce engine stands alone.</p>
@@ -125,7 +125,7 @@ export function Proof() {
         {/* Reframe callout */}
         <RevealWrapper>
           <div
-            className="rounded-2xl p-8 reveal reveal-delay-3"
+            className="rounded-2xl p-5 reveal reveal-delay-3"
             style={{ backgroundColor: '#0B0E1A', border: '1px solid #1E2235' }}
           >
             <p className="font-display font-semibold text-off-white text-lg leading-relaxed">

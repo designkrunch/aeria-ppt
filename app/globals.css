@@ -145,6 +145,26 @@ button:focus-visible {
 .no-js .reveal { opacity: 1; transform: none; }
 
 /* ------------------------------------------------------------------ */
+/* Slide framing — each section is a 16:9 deck slide on desktop so the  */
+/* page screenshots straight into a PDF. Mobile keeps natural flow.     */
+/* ------------------------------------------------------------------ */
+.slide {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+@media (min-width: 768px) {
+  .slide {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: clamp(1.5rem, 3vh, 2.5rem);
+    padding-bottom: clamp(1.5rem, 3vh, 2.5rem);
+  }
+}
+
+/* ------------------------------------------------------------------ */
 /* Print — render the page as a pitch deck: one section per landscape  */
 /* page, brand backgrounds preserved, animations neutralised.          */
 /* ------------------------------------------------------------------ */

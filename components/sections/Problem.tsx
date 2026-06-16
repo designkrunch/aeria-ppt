@@ -26,7 +26,7 @@ const consequences = [
 
 export function Problem() {
   return (
-    <section className="bg-navy py-32 px-8 md:px-16">
+    <section className="slide bg-navy px-8 md:px-16">
       <div className="max-w-6xl mx-auto">
         <RevealWrapper>
           <div className="section-label mb-6 reveal">The Problem</div>
@@ -38,7 +38,7 @@ export function Problem() {
             <span className="text-coral">30+ disconnected tools</span>
             <br />— and no one sees the whole.
           </h2>
-          <p className="text-muted text-lg max-w-2xl mb-20 reveal reveal-delay-2">
+          <p className="text-muted text-lg max-w-2xl mb-8 reveal reveal-delay-2">
             Owners aren&apos;t short of software — they&apos;re drowning in it. None of it talks,
             so there&apos;s no portfolio view and money leaks at every seam.
           </p>
@@ -46,11 +46,11 @@ export function Problem() {
 
         {/* Disconnection map — tools orbiting a hub they never connect to */}
         <RevealWrapper>
-          <div className="relative rounded-2xl border border-navy-border bg-navy-surface p-6 md:p-8 mb-16 reveal reveal-delay-1">
+          <div className="relative rounded-2xl border border-navy-border bg-navy-surface p-6 md:p-8 mb-8 reveal reveal-delay-1">
             {/* Desktop: radial map with severed spokes */}
             <div
               className="relative mx-auto w-full hidden md:block"
-              style={{ maxWidth: 600, aspectRatio: '1 / 1' }}
+              style={{ maxWidth: 330, aspectRatio: '1 / 1' }}
             >
               <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full" aria-hidden="true">
                 {vendors.map((v, i) => {
@@ -144,7 +144,7 @@ export function Problem() {
           {consequences.map((c, i) => (
             <RevealWrapper key={c.title}>
               <div
-                className={`rounded-xl border border-navy-border bg-navy-surface p-8 reveal reveal-delay-${i + 1}`}
+                className={`rounded-xl border border-navy-border bg-navy-surface p-6 reveal reveal-delay-${i + 1}`}
               >
                 <div className="text-coral text-2xl mb-4">—</div>
                 <h3 className="font-display font-bold text-off-white text-xl mb-3">

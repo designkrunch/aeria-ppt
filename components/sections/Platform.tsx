@@ -33,7 +33,7 @@ const outcomes = [
 
 export function Platform() {
   return (
-    <section className="bg-bone py-32 px-8 md:px-16">
+    <section className="slide bg-bone px-8 md:px-16">
       <div className="max-w-6xl mx-auto">
         <RevealWrapper>
           <div className="section-label mb-6 reveal" style={{ color: '#52525B' }}>
@@ -48,7 +48,7 @@ export function Platform() {
             Four outcomes.{' '}
             <span style={{ color: '#E8452A' }}>Agents throughout.</span>
           </h2>
-          <p className="text-lg leading-relaxed max-w-2xl mb-20 reveal reveal-delay-2" style={{ color: '#52525B' }}>
+          <p className="text-lg leading-relaxed max-w-2xl mb-8 reveal reveal-delay-2" style={{ color: '#52525B' }}>
             Aeria collapses 30+ tools into one system of record across every stakeholder —
             with an AI agent inside each function. The building doesn&apos;t just get digitized.
             It gets operated.
@@ -56,11 +56,11 @@ export function Platform() {
         </RevealWrapper>
 
         {/* 2x2 outcome grid */}
-        <div className="grid md:grid-cols-2 gap-5 mb-12">
+        <div className="grid md:grid-cols-2 gap-4 mb-6">
           {outcomes.map((o, i) => (
             <RevealWrapper key={o.name}>
               <div
-                className={`rounded-2xl p-8 border reveal reveal-delay-${i + 1}`}
+                className={`rounded-2xl p-6 border reveal reveal-delay-${i + 1}`}
                 style={{ backgroundColor: '#E8E2D9', borderColor: '#D4CEBF' }}
               >
                 <div
@@ -88,7 +88,7 @@ export function Platform() {
         {/* Comparison bar */}
         <RevealWrapper>
           <div
-            className="rounded-2xl p-8 reveal reveal-delay-3"
+            className="rounded-2xl p-5 reveal reveal-delay-3"
             style={{ backgroundColor: '#141729' }}
           >
             <div className="space-y-5">
@@ -136,7 +136,7 @@ export function Platform() {
 
         {/* Thesis tags */}
         <RevealWrapper>
-          <div className="flex flex-wrap gap-4 mt-8 reveal reveal-delay-4">
+          <div className="flex flex-wrap gap-4 mt-5 reveal reveal-delay-4">
             <div className="rounded-full border border-bone-dim bg-bone-dim px-6 py-3 flex items-center gap-3">
               <span className="font-display font-bold text-navy text-lg">−20%</span>
               <span className="text-muted text-sm">ops cost</span>

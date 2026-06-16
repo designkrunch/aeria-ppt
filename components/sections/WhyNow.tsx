@@ -2,7 +2,7 @@ import { RevealWrapper } from '@/components/ui/RevealWrapper';
 
 export function WhyNow() {
   return (
-    <section className="bg-navy py-32 px-8 md:px-16 border-t border-navy-border">
+    <section className="slide bg-navy px-8 md:px-16 border-t border-navy-border">
       <div className="max-w-6xl mx-auto">
         <RevealWrapper>
           <div className="section-label mb-6 reveal">Why Now</div>

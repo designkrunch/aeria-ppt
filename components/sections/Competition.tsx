@@ -38,7 +38,7 @@ function Mark({ on }: { on: boolean }) {
 
 export function Competition() {
   return (
-    <section className="bg-bone py-32 px-8 md:px-16">
+    <section className="slide bg-bone px-8 md:px-16">
       <div className="max-w-6xl mx-auto">
         <RevealWrapper>
           <div className="section-label mb-6 reveal" style={{ color: '#52525B' }}>
@@ -52,7 +52,7 @@ export function Competition() {
             <br />
             built on <span style={{ color: '#E8452A' }}>a fraction of the capital.</span>
           </h2>
-          <p className="text-lg leading-relaxed max-w-2xl mb-16 reveal reveal-delay-2" style={{ color: '#52525B' }}>
+          <p className="text-lg leading-relaxed max-w-2xl mb-8 reveal reveal-delay-2" style={{ color: '#52525B' }}>
             The category is proven: incumbents have raised $150–460M and tenant-experience
             companies exit at $100–200M. None are AI-native, none run zero-knowledge onboarding,
             and none are priced for APAC. Aeria is all three.
@@ -72,12 +72,12 @@ export function Competition() {
                 </caption>
                 <thead>
                   <tr>
-                    <th scope="col" className="text-left p-5" />
+                    <th scope="col" className="text-left p-3" />
                     {companies.map((c) => (
                       <th
                         key={c}
                         scope="col"
-                        className="p-5 text-center font-display font-bold"
+                        className="p-3 text-center font-display font-bold"
                         style={{
                           color: c === 'Aeria' ? '#E8452A' : '#0B0E1A',
                           backgroundColor: c === 'Aeria' ? 'rgba(232,69,42,0.06)' : 'transparent',
@@ -94,7 +94,7 @@ export function Competition() {
                     <tr key={row.label} style={{ borderTop: '1px solid #ECE6DA' }}>
                       <th
                         scope="row"
-                        className="text-left p-5 text-sm font-medium align-middle"
+                        className="text-left p-3 text-sm font-medium align-middle"
                         style={{ color: '#0B0E1A' }}
                       >
                         {row.label}
@@ -102,7 +102,7 @@ export function Competition() {
                       {row.marks.map((m, i) => (
                         <td
                           key={i}
-                          className="p-5 text-center align-middle"
+                          className="p-3 text-center align-middle"
                           style={{
                             backgroundColor: i === 0 ? 'rgba(232,69,42,0.06)' : 'transparent',
                           }}
@@ -122,10 +122,10 @@ export function Competition() {
         <div className="grid md:grid-cols-[1.4fr_1fr] gap-5 mt-5">
           <RevealWrapper>
             <div
-              className="rounded-2xl p-8 reveal reveal-delay-2 print-keep"
+              className="rounded-2xl p-6 reveal reveal-delay-2 print-keep"
               style={{ backgroundColor: '#141729' }}
             >
-              <div className="section-label mb-6">Raised to date</div>
+              <div className="section-label mb-4">Raised to date</div>
               <div className="space-y-4">
                 {raised.map((r) => {
                   // Scale bars against VTS's $463M.
@@ -171,7 +171,7 @@ export function Competition() {
 
           <RevealWrapper>
             <div
-              className="rounded-2xl p-8 reveal reveal-delay-3 flex flex-col justify-center print-keep"
+              className="rounded-2xl p-6 reveal reveal-delay-3 flex flex-col justify-center print-keep"
               style={{ backgroundColor: '#E8E2D9', border: '1px solid #D4CEBF' }}
             >
               <div className="section-label mb-3" style={{ color: '#52525B' }}>

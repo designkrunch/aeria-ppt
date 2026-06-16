@@ -18,24 +18,22 @@ const trajectoryLabels: [number, string][] = [
   [11, 'MONTH 12'],
 ];
 
-const investors = ['Kalaari', 'Foundamental', 'AC Ventures', 'AL Trust'];
-
 export function Traction() {
   return (
-    <section className="bg-navy py-32 px-8 md:px-16">
+    <section className="slide bg-navy px-8 md:px-16">
       <div className="max-w-6xl mx-auto">
         <RevealWrapper>
           <div className="section-label mb-6 reveal">Traction</div>
           <h2
             className="font-display font-extrabold text-off-white leading-tight mb-6 reveal reveal-delay-1"
-            style={{ fontSize: 'clamp(32px, 4vw, 60px)' }}
+            style={{ fontSize: 'clamp(30px, 3.4vw, 48px)' }}
           >
             12 months post-MVP:{' '}
             <span className="text-coral">15M sq ft,</span>
             <br />
             5 developers, contracts that compound.
           </h2>
-          <p className="text-muted text-lg max-w-2xl mb-16 reveal reveal-delay-2">
+          <p className="text-muted text-lg max-w-2xl mb-6 reveal reveal-delay-2">
             The number that matters is what&apos;s locked: ~$2M contracted and expanding on
             three-year terms, $1.2M with POs in hand.
           </p>
@@ -43,16 +41,16 @@ export function Traction() {
 
         {/* 6 stat tiles */}
         <RevealWrapper>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-12 reveal reveal-delay-1">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-5 reveal reveal-delay-1">
             {stats.map((s, i) => (
               <div
                 key={s.label}
-                className={`rounded-xl p-5 border border-navy-border bg-navy-surface flex flex-col gap-2 reveal-delay-${i + 1}`}
+                className={`rounded-xl p-4 border border-navy-border bg-navy-surface flex flex-col gap-2 reveal-delay-${i + 1}`}
               >
                 <div
                   className="font-display font-extrabold tabular leading-none"
                   style={{
-                    fontSize: 'clamp(28px, 3vw, 44px)',
+                    fontSize: 'clamp(24px, 2.4vw, 36px)',
                     color: s.value === '~$2M' ? '#E8452A' : '#FAFAF8',
                   }}
                 >
@@ -66,8 +64,8 @@ export function Traction() {
 
         {/* Deployment trajectory chart */}
         <RevealWrapper>
-          <div className="rounded-2xl border border-navy-border bg-navy-surface p-8 mb-12 reveal reveal-delay-2 print-keep">
-            <div className="flex flex-wrap items-baseline justify-between gap-2 mb-6">
+          <div className="rounded-2xl border border-navy-border bg-navy-surface p-5 mb-6 reveal reveal-delay-2 print-keep">
+            <div className="flex flex-wrap items-baseline justify-between gap-2 mb-4">
               <div className="section-label">Sq ft deployed · 12 months post-MVP</div>
               <div className="section-label">Illustrative trajectory</div>
             </div>
@@ -83,10 +81,10 @@ export function Traction() {
         {/* ARR split bar */}
         <RevealWrapper>
           <div
-            className="rounded-2xl border border-navy-border bg-navy-surface p-8 mb-12 reveal reveal-delay-2"
+            className="rounded-2xl border border-navy-border bg-navy-surface p-5 reveal reveal-delay-2"
           >
-            <div className="section-label mb-6">ARR Breakdown (~$2M)</div>
-            <div className="space-y-5">
+            <div className="section-label mb-4">ARR Breakdown (~$2M)</div>
+            <div className="space-y-3">
               <div>
                 <div className="flex justify-between mb-2">
                   <span className="text-off-white font-display font-semibold">~$1.2M</span>
@@ -106,24 +104,9 @@ export function Traction() {
                 </div>
               </div>
             </div>
-            <p className="text-muted text-sm mt-6 font-mono-custom">
+            <p className="text-muted text-sm mt-4 font-mono-custom">
               At 12 months post-MVP, the signal is sq ft deployed and 3-year lock-ins — not in-year ARR.
             </p>
-          </div>
-        </RevealWrapper>
-
-        {/* Investor row */}
-        <RevealWrapper>
-          <div className="flex flex-wrap items-center gap-3 reveal reveal-delay-3">
-            <span className="section-label mr-4">Backed by</span>
-            {investors.map((inv) => (
-              <span
-                key={inv}
-                className="px-5 py-2 rounded-full border border-navy-border text-muted font-mono-custom text-sm"
-              >
-                {inv}
-              </span>
-            ))}
           </div>
         </RevealWrapper>
       </div>

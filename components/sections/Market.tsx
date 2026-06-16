@@ -19,7 +19,7 @@ const tam = [
 
 export function Market() {
   return (
-    <section className="bg-navy py-32 px-8 md:px-16">
+    <section className="slide bg-navy px-8 md:px-16">
       <div className="max-w-6xl mx-auto">
         <RevealWrapper>
           <div className="section-label mb-6 reveal">Market Opportunity</div>
@@ -34,17 +34,17 @@ export function Market() {
             that&apos;s{' '}
             <span className="text-coral">$100M ARR.</span>
           </h2>
-          <p className="text-muted text-lg max-w-2xl mb-16 reveal reveal-delay-2">
+          <p className="text-muted text-lg max-w-2xl mb-10 reveal reveal-delay-2">
             ~300 asset managers control ~30B sq ft. Convert 15–20% of them at one ~25M sq ft
             portfolio each, priced below incumbents, and the model reaches nine figures.
             We&apos;ve already cracked 3 Indian accounts &gt;50M sq ft each at 3–4¢.
           </p>
         </RevealWrapper>
 
-        <div className="grid lg:grid-cols-[1fr_320px] gap-12">
+        <div className="grid lg:grid-cols-[1fr_320px] gap-8">
           {/* Funnel — reads as a calculation converging on revenue */}
           <RevealWrapper>
-            <div className="space-y-4 reveal reveal-delay-1">
+            <div className="space-y-3 reveal reveal-delay-1">
               {funnelSteps.map((step, i) => (
                 <div key={step.label}>
                   <div className="flex items-baseline gap-3 mb-1.5">
@@ -76,7 +76,7 @@ export function Market() {
           {/* TAM panel */}
           <RevealWrapper>
             <div className="flex flex-col gap-5 reveal reveal-delay-2">
-              <div className="rounded-2xl border border-navy-border bg-navy-surface p-7">
+              <div className="rounded-2xl border border-navy-border bg-navy-surface p-5">
                 <div className="section-label mb-5">Asian TAM</div>
                 {tam.map((t) => (
                   <div
@@ -93,7 +93,7 @@ export function Market() {
                 </div>
               </div>
 
-              <div className="rounded-2xl border border-navy-border bg-navy-surface p-7">
+              <div className="rounded-2xl border border-navy-border bg-navy-surface p-5">
                 <div className="section-label mb-3">Context</div>
                 <div className="space-y-2 text-muted text-sm leading-relaxed">
                   <p>Office &gt; 68% of commercial real estate</p>

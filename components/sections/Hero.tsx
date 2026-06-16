@@ -3,7 +3,7 @@ import { RevealWrapper } from '@/components/ui/RevealWrapper';
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen bg-navy flex flex-col justify-center overflow-hidden">
+    <section className="slide relative bg-navy flex flex-col justify-center overflow-hidden">
       {/* Subtle background grid */}
       <div
         aria-hidden="true"
@@ -57,7 +57,7 @@ export function Hero() {
         style={{ background: 'radial-gradient(ellipse, #E8452A 0%, transparent 70%)' }}
       />
 
-      <RevealWrapper className="relative z-10 w-full max-w-6xl mx-auto px-8 md:px-16 py-24">
+      <RevealWrapper className="relative z-10 w-full max-w-6xl mx-auto px-8 md:px-16 py-10">
         {/* Logo */}
         <div className="mb-16 reveal">
           <Image
@@ -96,7 +96,7 @@ export function Hero() {
           </p>
 
           {/* Investor chips */}
-          <div className="flex flex-wrap items-center gap-3 mb-16 reveal reveal-delay-4">
+          <div className="flex flex-wrap items-center gap-3 mb-10 reveal reveal-delay-4">
             <span className="section-label mr-2">Backed by</span>
             {['Kalaari', 'Foundamental', 'AC Ventures', 'AL Trust'].map((name) => (
               <span
@@ -109,7 +109,7 @@ export function Hero() {
           </div>
 
           {/* Bottom metrics strip */}
-          <div className="divider-glow mb-8 reveal reveal-delay-5" />
+          <div className="divider-glow mb-4 reveal reveal-delay-5" />
           <div className="flex flex-wrap gap-8 reveal reveal-delay-6">
             {[
               { value: '15M sq ft', label: 'deployed & secured' },
