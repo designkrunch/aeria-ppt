@@ -114,7 +114,7 @@
 .sl-h1 {
   font-family: var(--font-display); font-size: 4.5rem; font-weight: 600;
   line-height: 1.07; letter-spacing: -0.03em; color: #111111;
-  max-width: 1080px; flex-shrink: 0;
+  max-width: 1080px; flex-shrink: 0; text-wrap: balance;
 }
 .sl-h1 .accent { color: #f5330e; }
 .sl-h1--lg { font-size: 5rem; }
@@ -216,20 +216,20 @@
   line-height: 1.1; font-variant-numeric: tabular-nums; color: #f5330e;
 }
 .sl-stat-tile__label {
-  font-family: var(--font-mono); font-size: 0.625rem; color: #aaa;
+  font-family: var(--font-mono); font-size: 0.6875rem; color: #777;
   letter-spacing: 0.06em; text-transform: uppercase; margin-top: 0.125rem;
 }
 
 /* ---- Section label (small mono ALL CAPS) ---- */
 .sl-sec-label {
-  font-family: var(--font-mono); font-size: 0.6875rem; font-weight: 600;
-  text-transform: uppercase; letter-spacing: 0.09em; color: #bbb;
+  font-family: var(--font-mono); font-size: 0.75rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.09em; color: #888;
   margin-bottom: 0.875rem;
 }
 
 /* ---- Evidence tags ---- */
-.sl-tag-m { color: #f5330e; font-weight: 700; font-size: 0.625rem; font-family: var(--font-mono); }
-.sl-tag-e { color: #aaa; font-weight: 400; font-size: 0.625rem; font-family: var(--font-mono); }
+.sl-tag-m { color: #f5330e; font-weight: 700; font-size: 0.6875rem; font-family: var(--font-mono); }
+.sl-tag-e { color: #777; font-weight: 400; font-size: 0.6875rem; font-family: var(--font-mono); }
 
 /* ---- Key message strip ---- */
 .sl-key-strip {
@@ -303,7 +303,7 @@
   font-family: var(--font-mono); font-size: 0.6875rem; font-weight: 600;
   text-transform: uppercase; letter-spacing: 0.09em; color: #bbb;
 }
-#slide-3 .outcome-tile:nth-child(3) .outcome-tile__tag { color: rgba(255,255,255,0.5); }
+#slide-3 .outcome-tile:nth-child(3) .outcome-tile__tag { color: rgba(255,255,255,0.78); }
 
 #slide-3 .outcome-tile__name {
   font-family: var(--font-display); font-size: 1.25rem; font-weight: 600;
@@ -321,7 +321,7 @@
   display: flex; align-items: center; gap: 1.5rem; margin-bottom: 0.625rem;
 }
 #slide-3 .comp-label {
-  font-family: var(--font-mono); font-size: 0.75rem; color: #aaa; width: 110px; flex-shrink: 0;
+  font-family: var(--font-mono); font-size: 0.75rem; color: #777; width: 110px; flex-shrink: 0;
 }
 #slide-3 .comp-label--aeria { color: #111; font-weight: 600; }
 #slide-3 .comp-track {
@@ -330,7 +330,7 @@
 #slide-3 .comp-fill { height: 100%; border-radius: 999px; background: #ddd; }
 #slide-3 .comp-fill--aeria { background: #f5330e; }
 #slide-3 .comp-tag {
-  font-family: var(--font-mono); font-size: 0.6875rem; color: #aaa; width: 80px;
+  font-family: var(--font-mono); font-size: 0.6875rem; color: #777; width: 80px;
 }
 #slide-3 .comp-tag--aeria { color: #f5330e; font-weight: 600; }
 
@@ -431,7 +431,7 @@
   font-family: var(--font-display); font-size: 1.875rem; font-weight: 600; color: #f5330e;
 }
 #slide-6 .thesis-label {
-  font-family: var(--font-mono); font-size: 0.625rem; color: #888; margin-top: 0.25rem;
+  font-family: var(--font-mono); font-size: 0.6875rem; color: #666; margin-top: 0.25rem;
 }
 
 
@@ -452,7 +452,7 @@
 
 .pillar-panel__name {
   font-family: var(--font-mono); font-size: 0.6875rem; font-weight: 600;
-  text-transform: uppercase; letter-spacing: 0.1em; color: #bbb;
+  text-transform: uppercase; letter-spacing: 0.1em; color: #555;
   border-bottom: 1px solid #e5e5e5; padding-bottom: 1rem; margin-bottom: 1rem;
 }
 
@@ -462,8 +462,8 @@
 .pillar-row:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
 
 .pillar-row__label {
-  font-family: var(--font-mono); font-size: 0.625rem; font-weight: 600;
-  text-transform: uppercase; letter-spacing: 0.09em; color: #ccc; margin-bottom: 0.375rem;
+  font-family: var(--font-mono); font-size: 0.6875rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.09em; color: #777; margin-bottom: 0.375rem;
 }
 
 .pillar-row__text {
@@ -527,7 +527,7 @@
 #slide-10 .stakeholder-lane:first-child { border-top: 1px solid #ebebeb; }
 #slide-10 .lane-name {
   font-family: var(--font-mono); font-size: 0.6875rem; font-weight: 600;
-  text-transform: uppercase; letter-spacing: 0.09em; color: #bbb;
+  text-transform: uppercase; letter-spacing: 0.09em; color: #555;
   width: 160px; flex-shrink: 0;
 }
 #slide-10 .lane-apps { display: flex; flex-wrap: wrap; gap: 0.625rem; }
@@ -609,7 +609,7 @@
   padding-top: 1.25rem; border-top: 1px solid #ebebeb; flex-shrink: 0;
 }
 #slide-12 .investor-name {
-  font-family: var(--font-body); font-size: 1.0625rem; font-weight: 500; color: #ccc;
+  font-family: var(--font-body); font-size: 1.0625rem; font-weight: 500; color: #999;
 }
 
 
@@ -762,17 +762,19 @@
   height: 36px; border-radius: 6px;
   display: flex; align-items: center; padding: 0 1.125rem; flex-shrink: 0;
 }
-#slide-16 .pipeline-bar--1 { background: #f5330e; width: 55%; }
-#slide-16 .pipeline-bar--2 { background: #fde8e3; border: 1px solid #fbd4cb; width: 32%; }
-#slide-16 .pipeline-bar--3 { background: #f5f5f5; border: 1px solid #ebebeb; width: 50%; }
-#slide-16 .pipeline-bar--4 { background: #f0f0f0; border: 1px solid #e5e5e5; width: 65%; }
-#slide-16 .pipeline-bar--5 { background: #ebebeb; border: 1px solid #e0e0e0; width: 45%; }
+/* Bar widths proportional to sq ft: 36.5M / 9M / 220M / 54M / 150M */
+#slide-16 .pipeline-bar--1 { background: #f5330e; width: 22%; }
+#slide-16 .pipeline-bar--2 { background: #fde8e3; border: 1px solid #fbd4cb; width: 12%; }
+#slide-16 .pipeline-bar--3 { background: #e5e5e5; border: 1px solid #d8d8d8; width: 100%; }
+#slide-16 .pipeline-bar--4 { background: #f0f0f0; border: 1px solid #e5e5e5; width: 32%; }
+#slide-16 .pipeline-bar--5 { background: #ebebeb; border: 1px solid #e0e0e0; width: 70%; }
 #slide-16 .pipeline-bar__label {
   font-family: var(--font-mono); font-size: 0.6875rem; font-weight: 600;
   color: #888; white-space: nowrap;
 }
 #slide-16 .pipeline-bar--1 .pipeline-bar__label { color: #fff; }
 #slide-16 .pipeline-bar--2 .pipeline-bar__label { color: #f5330e; }
+#slide-16 .pipeline-bar--3 .pipeline-bar__label { color: #555; }
 #slide-16 .pipeline-item__stat {
   font-family: var(--font-mono); font-size: 1rem; font-weight: 600;
   color: #111; white-space: nowrap;
@@ -788,7 +790,7 @@
 #slide-16 .dev-chip {
   background: #f5f5f5; border: 1px solid #ebebeb; border-radius: 10px;
   padding: 0.75rem 1.125rem; font-family: var(--font-display);
-  font-size: 0.9375rem; font-weight: 500; color: #bbb;
+  font-size: 0.9375rem; font-weight: 500; color: #666;
   display: flex; align-items: center; justify-content: center; text-align: center;
 }
 
