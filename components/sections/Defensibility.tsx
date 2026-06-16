@@ -43,6 +43,29 @@ const flywheelNodes = [
 ];
 
 export function Defensibility() {
+  // Flywheel geometry — six stages on a ring, clockwise from the top.
+  const cx = 50;
+  const cy = 50;
+  const R = 36;
+  const N = flywheelNodes.length;
+  const gap = 18; // degrees of clearance before each stage chip
+  const degAt = (i: number) => -90 + (360 / N) * i;
+  const polar = (deg: number, r = R) => ({
+    x: cx + r * Math.cos((deg * Math.PI) / 180),
+    y: cy + r * Math.sin((deg * Math.PI) / 180),
+  });
+  const markerFor = (color: string) =>
+    color === '#1A9B8C' ? 'fwTeal' : color === '#E8452A' ? 'fwCoral' : 'fwWhite';
+  const arcs = flywheelNodes.map((_, i) => {
+    const start = polar(degAt(i) + gap);
+    const end = polar(degAt(i + 1) - gap);
+    const color = flywheelNodes[(i + 1) % N].color; // tint by the stage it feeds
+    return {
+      d: `M ${start.x.toFixed(2)} ${start.y.toFixed(2)} A ${R} ${R} 0 0 1 ${end.x.toFixed(2)} ${end.y.toFixed(2)}`,
+      color,
+    };
+  });
+
   return (
     <section className="bg-navy py-32 px-8 md:px-16">
       <div className="max-w-6xl mx-auto">
@@ -70,70 +93,91 @@ export function Defensibility() {
               className="rounded-2xl border border-navy-border bg-navy-surface p-8 reveal reveal-delay-1"
             >
               <div className="section-label mb-6">The data flywheel</div>
-              {/* Circular arrangement via CSS */}
-              <div className="relative w-full" style={{ paddingBottom: '100%' }}>
-                <svg
-                  viewBox="0 0 300 300"
-                  className="absolute inset-0 w-full h-full"
-                >
-                  {/* Circle track */}
-                  <circle cx="150" cy="150" r="100" fill="none" stroke="#1E2235" strokeWidth="2" strokeDasharray="8 4" />
-
-                  {/* Arrows on the circle */}
-                  {flywheelNodes.map((node, i) => {
-                    const angle = (i / flywheelNodes.length) * 2 * Math.PI - Math.PI / 2;
-                    const x = 150 + 100 * Math.cos(angle);
-                    const y = 150 + 100 * Math.sin(angle);
-                    const nextAngle = ((i + 1) / flywheelNodes.length) * 2 * Math.PI - Math.PI / 2;
-                    const nx = 150 + 100 * Math.cos(nextAngle);
-                    const ny = 150 + 100 * Math.sin(nextAngle);
-
-                    return (
-                      <g key={node.label}>
-                        {/* Node circle */}
-                        <circle cx={x} cy={y} r="28" fill="#141729" stroke={node.color} strokeWidth="1.5" />
-                        {/* Arrow to next */}
-                        <line
-                          x1={x + 28 * Math.cos(nextAngle - angle > 0 ? nextAngle : angle)}
-                          y1={y + 28 * Math.sin(nextAngle - angle > 0 ? nextAngle : angle)}
-                          x2={nx - 30 * Math.cos(nextAngle)}
-                          y2={ny - 30 * Math.sin(nextAngle)}
-                          stroke={node.color}
-                          strokeWidth="1"
-                          strokeOpacity="0.4"
-                          markerEnd="url(#arrow)"
-                        />
-                        {/* Label */}
-                        <text
-                          x={x}
-                          y={y}
-                          textAnchor="middle"
-                          dominantBaseline="middle"
-                          fontSize="9"
-                          fill={node.color}
-                          fontFamily="JetBrains Mono, monospace"
-                          fontWeight="500"
-                        >
-                          {node.label}
-                        </text>
-                      </g>
-                    );
-                  })}
-
-                  {/* Centre */}
-                  <text x="150" y="145" textAnchor="middle" fontSize="11" fill="#6B7280" fontFamily="JetBrains Mono, monospace">
-                    Aeria
-                  </text>
-                  <text x="150" y="160" textAnchor="middle" fontSize="9" fill="#6B7280" fontFamily="JetBrains Mono, monospace">
-                    flywheel
-                  </text>
-
+              {/* Flywheel — labelled stages on a clockwise ring */}
+              <div className="relative mx-auto w-full" style={{ maxWidth: 380, aspectRatio: '1 / 1' }}>
+                <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full" aria-hidden="true">
                   <defs>
-                    <marker id="arrow" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
-                      <path d="M0,0 L0,6 L6,3 z" fill="#6B7280" />
-                    </marker>
+                    {[
+                      { id: 'fwWhite', c: '#FAFAF8' },
+                      { id: 'fwTeal', c: '#1A9B8C' },
+                      { id: 'fwCoral', c: '#E8452A' },
+                    ].map((m) => (
+                      <marker
+                        key={m.id}
+                        id={m.id}
+                        markerUnits="userSpaceOnUse"
+                        markerWidth="4.5"
+                        markerHeight="4.5"
+                        refX="3.6"
+                        refY="2.25"
+                        orient="auto"
+                      >
+                        <path d="M0,0 L0,4.5 L4.5,2.25 z" fill={m.c} />
+                      </marker>
+                    ))}
                   </defs>
+
+                  {/* faint full track */}
+                  <circle cx={cx} cy={cy} r={R} fill="none" stroke="#1E2235" strokeWidth="0.5" />
+
+                  {/* directional arcs, each tinted by the stage it feeds */}
+                  {arcs.map((a, i) => (
+                    <path
+                      key={i}
+                      d={a.d}
+                      fill="none"
+                      stroke={a.color}
+                      strokeOpacity="0.65"
+                      strokeWidth="1.3"
+                      strokeLinecap="round"
+                      markerEnd={`url(#${markerFor(a.color)})`}
+                    />
+                  ))}
                 </svg>
+
+                {/* centre label */}
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none">
+                  <div className="font-display font-bold text-off-white text-sm leading-tight">Aeria</div>
+                  <div className="section-label">flywheel</div>
+                </div>
+
+                {/* stage chips positioned around the ring */}
+                {flywheelNodes.map((n, i) => {
+                  const p = polar(degAt(i));
+                  const isNeutral = n.color === '#FAFAF8';
+                  return (
+                    <div
+                      key={n.label}
+                      className="absolute"
+                      style={{ left: `${p.x}%`, top: `${p.y}%`, transform: 'translate(-50%, -50%)' }}
+                    >
+                      <span
+                        className="inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 font-mono-custom whitespace-nowrap"
+                        style={{
+                          backgroundColor: '#141729',
+                          borderColor: isNeutral ? '#2A2F45' : n.color,
+                          fontSize: '11px',
+                        }}
+                      >
+                        <span
+                          className="w-1.5 h-1.5 rounded-full shrink-0"
+                          style={{ backgroundColor: n.color }}
+                        />
+                        <span style={{ color: isNeutral ? '#FAFAF8' : n.color }}>{n.label}</span>
+                      </span>
+                    </div>
+                  );
+                })}
+
+                {/* accessible / print description of the loop */}
+                <ol className="sr-only">
+                  <li>Occupants generate interactions</li>
+                  <li>Interactions produce data</li>
+                  <li>Data becomes intelligence</li>
+                  <li>Intelligence drives automation</li>
+                  <li>Automation unlocks commerce</li>
+                  <li>Commerce brings occupants back — the loop compounds</li>
+                </ol>
               </div>
               <p className="text-muted text-sm mt-4 font-mono-custom">
                 Commodity model in → our IP, rails, contracts, and data around it.
