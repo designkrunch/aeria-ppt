@@ -73,7 +73,7 @@ export function BusinessModel() {
             {stages.map((s, i) => (
               <div key={s.label} className="flex-1 print-keep">
                 <div
-                  className="rounded-xl p-6 flex flex-col justify-end min-h-[140px] sm:min-h-[var(--bm-h)]"
+                  className="rounded-xl p-6 flex flex-col min-h-[200px] sm:min-h-[var(--bm-h)]"
                   style={
                     {
                       background: '#141729',
@@ -82,8 +82,20 @@ export function BusinessModel() {
                     } as React.CSSProperties
                   }
                 >
-                  <div className="mt-auto">
-                    <div className="section-label mb-2" style={{ color: '#8A92A4' }}>{s.sqft}</div>
+                  {/* lead with the headline portfolio size */}
+                  <div>
+                    <div
+                      className="font-display font-extrabold text-off-white leading-none tabular"
+                      style={{ fontSize: 'clamp(26px, 2.6vw, 40px)' }}
+                    >
+                      {s.sqft.replace(' sq ft', '')}
+                    </div>
+                    <div className="section-label mt-1.5" style={{ color: '#8A92A4' }}>
+                      sq ft portfolio
+                    </div>
+                  </div>
+
+                  <div className="mt-auto pt-6">
                     <div className="font-display font-bold text-off-white mb-3">{s.label}</div>
                     <div className="flex flex-col gap-1">
                       {s.lines.map((l, li) => (

@@ -2,11 +2,14 @@ import { RevealWrapper } from '@/components/ui/RevealWrapper';
 
 const funnelSteps = [
   { label: 'global asset managers & funds', value: '~300', width: '100%' },
-  { label: 'funds converted (15–20%)', value: '~60', width: '70%' },
-  { label: 'sq ft — one portfolio each', value: '~25M', width: '50%' },
-  { label: 'per sq ft / year · below incumbents', value: '× 6.5¢', width: '35%' },
-  { label: 'ARR', value: '$100M', width: '24%', accent: true },
+  { label: 'funds converted (15–20%)', value: '~60', width: '72%' },
+  { label: 'sq ft — one portfolio each', value: '× 25M', width: '52%' },
+  { label: 'per sq ft / year · below incumbents', value: '× 6.5¢', width: '36%' },
+  { label: 'ARR', value: '= $100M', width: '24%', accent: true },
 ];
+
+// Warm ramp blue → coral: the math visibly converges on revenue.
+const funnelRamp = ['#33415F', '#5B466A', '#8A4A56', '#C24634', '#E8452A'];
 
 const tam = [
   { label: 'Tenant Experience', value: '$3.5B' },
@@ -39,30 +42,32 @@ export function Market() {
         </RevealWrapper>
 
         <div className="grid lg:grid-cols-[1fr_320px] gap-12">
-          {/* Funnel */}
+          {/* Funnel — reads as a calculation converging on revenue */}
           <RevealWrapper>
-            <div className="space-y-3 reveal reveal-delay-1">
+            <div className="space-y-4 reveal reveal-delay-1">
               {funnelSteps.map((step, i) => (
                 <div key={step.label}>
-                  <div className="flex items-center gap-4 mb-1">
+                  <div className="flex items-baseline gap-3 mb-1.5">
                     <span
-                      className="font-display font-bold text-sm w-28 shrink-0"
-                      style={{ color: step.accent ? '#E8452A' : '#FAFAF8' }}
+                      className="font-display font-extrabold tabular"
+                      style={{
+                        fontSize: 'clamp(18px, 1.7vw, 26px)',
+                        color: step.accent ? '#E8452A' : '#FAFAF8',
+                      }}
                     >
                       {step.value}
                     </span>
                     <span className="text-muted text-sm">{step.label}</span>
                   </div>
                   <div
-                    className="h-10 rounded-lg transition-all"
+                    className="rounded-lg transition-all"
                     style={{
                       width: step.width,
-                      backgroundColor: step.accent ? '#E8452A' : '#1E2235',
+                      height: step.accent ? 16 : 11,
+                      background: `linear-gradient(90deg, ${funnelRamp[i]}, ${funnelRamp[Math.min(i + 1, funnelRamp.length - 1)]})`,
+                      boxShadow: step.accent ? '0 0 24px rgba(232,69,42,0.35)' : 'none',
                     }}
                   />
-                  {i < funnelSteps.length - 1 && (
-                    <div className="text-muted text-xs ml-28 mt-1">↓</div>
-                  )}
                 </div>
               ))}
             </div>

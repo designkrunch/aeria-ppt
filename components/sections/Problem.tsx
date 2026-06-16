@@ -44,33 +44,97 @@ export function Problem() {
           </p>
         </RevealWrapper>
 
-        {/* Vendor ring — CSS grid approximation */}
+        {/* Disconnection map — tools orbiting a hub they never connect to */}
         <RevealWrapper>
-          <div className="relative rounded-2xl border border-navy-border bg-navy-surface p-10 mb-16 reveal reveal-delay-1">
-            {/* Centre label */}
-            <div className="text-center mb-10">
-              <div className="inline-flex items-center justify-center w-48 h-48 rounded-full border-2 border-dashed border-coral/30 relative">
-                <span
-                  className="text-coral font-display font-bold text-center leading-snug px-4"
-                  style={{ fontSize: '14px' }}
+          <div className="relative rounded-2xl border border-navy-border bg-navy-surface p-6 md:p-8 mb-16 reveal reveal-delay-1">
+            {/* Desktop: radial map with severed spokes */}
+            <div
+              className="relative mx-auto w-full hidden md:block"
+              style={{ maxWidth: 600, aspectRatio: '1 / 1' }}
+            >
+              <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full" aria-hidden="true">
+                {vendors.map((v, i) => {
+                  const rad = ((-90 + i * (360 / vendors.length)) * Math.PI) / 180;
+                  const x1 = 50 + 27 * Math.cos(rad);
+                  const y1 = 50 + 27 * Math.sin(rad);
+                  const x2 = 50 + 35 * Math.cos(rad);
+                  const y2 = 50 + 35 * Math.sin(rad);
+                  return (
+                    <line
+                      key={v}
+                      x1={x1}
+                      y1={y1}
+                      x2={x2}
+                      y2={y2}
+                      stroke="#E8452A"
+                      strokeOpacity="0.4"
+                      strokeWidth="0.4"
+                      strokeDasharray="1.4 1.4"
+                    />
+                  );
+                })}
+              </svg>
+
+              {/* hub */}
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+                <div
+                  className="flex items-center justify-center rounded-full border-2 border-dashed border-coral/40"
+                  style={{ width: 150, height: 150 }}
                 >
-                  No connected
-                  <br />
-                  source of truth
-                </span>
+                  <span
+                    className="text-coral font-display font-bold text-center leading-snug px-5"
+                    style={{ fontSize: '13px' }}
+                  >
+                    No connected
+                    <br />
+                    source of truth
+                  </span>
+                </div>
               </div>
+
+              {/* tool chips around the ring */}
+              {vendors.map((v, i) => {
+                const rad = ((-90 + i * (360 / vendors.length)) * Math.PI) / 180;
+                const x = 50 + 42 * Math.cos(rad);
+                const y = 50 + 42 * Math.sin(rad);
+                return (
+                  <div
+                    key={v}
+                    className="absolute"
+                    style={{ left: `${x}%`, top: `${y}%`, transform: 'translate(-50%, -50%)' }}
+                  >
+                    <span
+                      className="inline-block rounded-full border border-navy-border bg-navy px-3 py-1.5 text-muted font-mono-custom whitespace-nowrap"
+                      style={{ fontSize: '10px' }}
+                    >
+                      {v}
+                    </span>
+                  </div>
+                );
+              })}
             </div>
 
-            {/* Vendor chips arranged in rows */}
-            <div className="flex flex-wrap justify-center gap-3">
-              {vendors.map((v) => (
-                <span
-                  key={v}
-                  className="px-4 py-2 rounded-full border border-navy-border text-muted font-mono-custom text-xs"
-                >
-                  {v}
-                </span>
-              ))}
+            {/* Mobile: hub + chip list */}
+            <div className="md:hidden">
+              <div className="flex justify-center mb-8">
+                <div className="flex items-center justify-center rounded-full border-2 border-dashed border-coral/40 w-40 h-40">
+                  <span className="text-coral font-display font-bold text-center leading-snug px-4 text-sm">
+                    No connected
+                    <br />
+                    source of truth
+                  </span>
+                </div>
+              </div>
+              <div className="flex flex-wrap justify-center gap-2.5">
+                {vendors.map((v) => (
+                  <span
+                    key={v}
+                    className="px-3 py-1.5 rounded-full border border-navy-border text-muted font-mono-custom text-xs"
+                  >
+                    {v}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </RevealWrapper>
