@@ -19,9 +19,9 @@ export function Hero() {
       <div
         aria-hidden="true"
         className="absolute -top-24 -right-24 w-[620px] max-w-[60vw] opacity-[0.22] pointer-events-none hidden md:block no-print"
-        style={{ mixBlendMode: 'screen' }}
+        style={{ mixBlendMode: 'screen', aspectRatio: '1 / 1' }}
       >
-        <Image src="/starburst.svg" alt="" width={620} height={620} priority />
+        <Image src="/starburst.svg" alt="" fill priority sizes="620px" style={{ objectFit: 'contain' }} />
       </div>
 
       {/* Building photo — right edge, faded into the navy */}
@@ -92,8 +92,7 @@ export function Hero() {
           {/* Sub-headline */}
           <p className="text-muted text-xl leading-relaxed max-w-2xl mb-12 reveal reveal-delay-3">
             One platform that turns a disconnected building into a self-operating
-            asset. It lowers operating cost while compounding the experience and
-            commerce that defend rent.
+            asset — cutting operating cost and unlocking new revenue without raising rent.
           </p>
 
           {/* Investor chips */}

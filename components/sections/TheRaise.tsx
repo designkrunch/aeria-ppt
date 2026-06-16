@@ -35,7 +35,7 @@ export function TheRaise() {
                 Raising{' '}
                 <span className="text-coral">$6–8M</span>
                 <br />
-                to turn three flagships
+                to turn proven flagships
                 <br />
                 into a category.
               </h2>

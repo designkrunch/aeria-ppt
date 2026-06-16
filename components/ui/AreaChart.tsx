@@ -26,7 +26,7 @@ export function AreaChart({
   const W = 640;
   const H = 260;
   const padX = 16;
-  const padTop = 24;
+  const padTop = 46; // headroom so the peak callout label never clips
   const padBottom = 34;
   const plotW = W - padX * 2;
   const plotH = H - padTop - padBottom;

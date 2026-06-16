@@ -15,9 +15,8 @@ export function WhyNow() {
             the <span className="text-coral">dashboard</span> is the liability.
           </h2>
           <p className="text-muted text-lg max-w-2xl mb-20 reveal reveal-delay-2">
-            Models just crossed the capability-to-cost line. The moment a building runs on
-            agents instead of dashboards, the screen stops being the product — and everything
-            beneath it starts to.
+            Models just crossed the capability-to-cost line. When a building runs on agents
+            instead of dashboards, the screen stops being the product.
           </p>
         </RevealWrapper>
 
@@ -79,32 +78,16 @@ export function WhyNow() {
           </RevealWrapper>
         </div>
 
-        {/* Three points */}
-        <div className="grid md:grid-cols-3 gap-8">
-          {[
-            {
-              n: '1',
-              text: 'Software-centric ops don\'t lower cost — they relocate dashboards.',
-            },
-            {
-              n: '2',
-              text: 'Agent-centric ops are newly possible: models crossed the capability / cost line.',
-            },
-            {
-              n: '3',
-              text: 'Value migrates from the interface to the orchestration, data and actions beneath it — exactly where Aeria is built.',
-            },
-          ].map((p, i) => (
-            <RevealWrapper key={p.n}>
-              <div className={`reveal reveal-delay-${i + 1}`}>
-                <div className="text-coral font-display font-extrabold text-4xl mb-4 tabular">
-                  {p.n}
-                </div>
-                <p className="text-off-white text-base leading-relaxed">{p.text}</p>
-              </div>
-            </RevealWrapper>
-          ))}
-        </div>
+        {/* Payoff */}
+        <RevealWrapper>
+          <p
+            className="reveal text-off-white font-display font-semibold leading-snug max-w-4xl"
+            style={{ fontSize: 'clamp(22px, 2.4vw, 34px)' }}
+          >
+            Value migrates from the interface to the orchestration, data, and actions
+            beneath it — <span className="text-coral">exactly where Aeria is built.</span>
+          </p>
+        </RevealWrapper>
       </div>
     </section>
   );

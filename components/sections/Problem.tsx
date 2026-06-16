@@ -39,8 +39,8 @@ export function Problem() {
             <br />— and no one sees the whole.
           </h2>
           <p className="text-muted text-lg max-w-2xl mb-20 reveal reveal-delay-2">
-            Owners aren&apos;t short of software — they&apos;re drowning in it. 30+ tools, none
-            talking, no portfolio view, money leaking at every seam.
+            Owners aren&apos;t short of software — they&apos;re drowning in it. None of it talks,
+            so there&apos;s no portfolio view and money leaks at every seam.
           </p>
         </RevealWrapper>
 

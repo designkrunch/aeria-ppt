@@ -40,6 +40,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`no-js ${plusJakarta.variable} ${inter.variable} ${jetbrainsMono.variable}`}
     >
       <head>
