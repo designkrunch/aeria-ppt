@@ -15,10 +15,45 @@ export function Hero() {
         }}
       />
 
-      {/* Ambient glow behind headline */}
+      {/* Starburst rays behind the building (deck cover motif) */}
       <div
         aria-hidden="true"
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] opacity-10 blur-[120px] pointer-events-none no-print"
+        className="absolute -top-24 -right-24 w-[620px] max-w-[60vw] opacity-[0.22] pointer-events-none hidden md:block no-print"
+        style={{ mixBlendMode: 'screen' }}
+      >
+        <Image src="/starburst.svg" alt="" width={620} height={620} priority />
+      </div>
+
+      {/* Building photo — right edge, faded into the navy */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-y-0 right-0 w-[48%] max-w-[560px] pointer-events-none hidden md:block"
+        style={{ zIndex: 1 }}
+      >
+        <div className="relative w-full h-full">
+          <Image
+            src="/building-photo.png"
+            alt=""
+            fill
+            priority
+            sizes="(max-width: 1024px) 45vw, 560px"
+            style={{ objectFit: 'cover', objectPosition: 'center top', opacity: 0.6 }}
+          />
+          {/* blend its inner edge + base into the page */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                'linear-gradient(90deg, #0B0E1A 0%, rgba(11,14,26,0.55) 32%, rgba(11,14,26,0) 72%), linear-gradient(0deg, #0B0E1A 4%, rgba(11,14,26,0) 42%)',
+            }}
+          />
+        </div>
+      </div>
+
+      {/* Ambient coral glow pooled under the headline */}
+      <div
+        aria-hidden="true"
+        className="absolute left-[32%] top-1/2 -translate-x-1/2 -translate-y-1/2 w-[820px] h-[460px] max-w-[90vw] opacity-[0.16] blur-[130px] pointer-events-none no-print"
         style={{ background: 'radial-gradient(ellipse, #E8452A 0%, transparent 70%)' }}
       />
 
