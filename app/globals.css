@@ -128,7 +128,7 @@ button:focus-visible {
 /* Stat number */
 .stat-number {
   font-family: var(--font-plus-jakarta), sans-serif;
-  font-size: clamp(40px, 5vw, 72px);
+  font-size: 72px;
   font-weight: 800;
   line-height: 1;
   color: #E8452A;
@@ -159,8 +159,22 @@ button:focus-visible {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-top: clamp(1.5rem, 3vh, 2.5rem);
-    padding-bottom: clamp(1.5rem, 3vh, 2.5rem);
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
+}
+
+/* Deck scaler — render at a fixed 1920px design and scale to the window so
+   slides never clip and look identical at any width (see DeckScaler.tsx). */
+.deck-wrap {
+  width: 100%;
+  overflow: hidden;
+}
+@media (min-width: 768px) {
+  .deck-inner {
+    width: 1920px;
+    transform-origin: top left;
+    transform: scale(var(--deck-scale, calc(100vw / 1920)));
   }
 }
 

@@ -41,7 +41,7 @@ export function Platform() {
           </div>
           <h2
             className="font-display font-extrabold leading-tight mb-6 reveal reveal-delay-1"
-            style={{ fontSize: 'clamp(32px, 4vw, 60px)', color: '#0B0E1A' }}
+            style={{ fontSize: '60px', color: '#0B0E1A' }}
           >
             One operating system.
             <br />

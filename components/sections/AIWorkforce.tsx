@@ -50,7 +50,7 @@ export function AIWorkforce() {
           <div className="section-label mb-6 reveal">The AI Workforce</div>
           <h2
             className="font-display font-extrabold text-off-white leading-tight mb-6 reveal reveal-delay-1"
-            style={{ fontSize: 'clamp(32px, 4vw, 60px)' }}
+            style={{ fontSize: '60px' }}
           >
             An AI workforce —
             <br />
@@ -140,7 +140,7 @@ export function AIWorkforce() {
               <div className="rounded-2xl border border-coral/20 bg-coral/5 p-4">
                 <div
                   className="font-display font-extrabold text-coral leading-none tabular mb-1.5"
-                  style={{ fontSize: 'clamp(30px, 3vw, 46px)' }}
+                  style={{ fontSize: '46px' }}
                 >
                   up to 20%
                 </div>

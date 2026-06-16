@@ -8,7 +8,7 @@ export function WhyNow() {
           <div className="section-label mb-6 reveal">Why Now</div>
           <h2
             className="font-display font-extrabold text-off-white leading-tight mb-6 reveal reveal-delay-1"
-            style={{ fontSize: 'clamp(32px, 4vw, 60px)' }}
+            style={{ fontSize: '60px' }}
           >
             In an agent-driven building,
             <br />
@@ -82,7 +82,7 @@ export function WhyNow() {
         <RevealWrapper>
           <p
             className="reveal text-off-white font-display font-semibold leading-snug max-w-4xl"
-            style={{ fontSize: 'clamp(22px, 2.4vw, 34px)' }}
+            style={{ fontSize: '34px' }}
           >
             Value migrates from the interface to the orchestration, data, and actions
             beneath it — <span className="text-coral">exactly where Aeria is built.</span>

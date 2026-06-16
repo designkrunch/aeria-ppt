@@ -26,7 +26,7 @@ export function Traction() {
           <div className="section-label mb-6 reveal">Traction</div>
           <h2
             className="font-display font-extrabold text-off-white leading-tight mb-6 reveal reveal-delay-1"
-            style={{ fontSize: 'clamp(30px, 3.4vw, 48px)' }}
+            style={{ fontSize: '48px' }}
           >
             12 months post-MVP:{' '}
             <span className="text-coral">15M sq ft,</span>
@@ -50,7 +50,7 @@ export function Traction() {
                 <div
                   className="font-display font-extrabold tabular leading-none"
                   style={{
-                    fontSize: 'clamp(24px, 2.4vw, 36px)',
+                    fontSize: '36px',
                     color: s.value === '~$2M' ? '#E8452A' : '#FAFAF8',
                   }}
                 >

@@ -25,7 +25,7 @@ export function Market() {
           <div className="section-label mb-6 reveal">Market Opportunity</div>
           <h2
             className="font-display font-extrabold text-off-white leading-tight mb-6 reveal reveal-delay-1"
-            style={{ fontSize: 'clamp(32px, 4vw, 60px)' }}
+            style={{ fontSize: '60px' }}
           >
             Sixty of the world&apos;s largest funds,
             <br />
@@ -51,7 +51,7 @@ export function Market() {
                     <span
                       className="font-display font-extrabold tabular"
                       style={{
-                        fontSize: 'clamp(18px, 1.7vw, 26px)',
+                        fontSize: '26px',
                         color: step.accent ? '#E8452A' : '#FAFAF8',
                       }}
                     >

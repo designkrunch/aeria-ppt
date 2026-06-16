@@ -11,10 +11,12 @@ import { Competition } from '@/components/sections/Competition';
 import { Defensibility } from '@/components/sections/Defensibility';
 import { Team } from '@/components/sections/Team';
 import { TheRaise } from '@/components/sections/TheRaise';
+import { DeckScaler } from '@/components/ui/DeckScaler';
 
 export default function Home() {
   return (
     <main>
+      <DeckScaler>
       <Hero />
       <Problem />
       <WhyNow />
@@ -48,6 +50,7 @@ export default function Home() {
           </div>
         </div>
       </footer>
+      </DeckScaler>
     </main>
   );
 }

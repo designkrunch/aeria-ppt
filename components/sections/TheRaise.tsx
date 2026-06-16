@@ -30,7 +30,7 @@ export function TheRaise() {
             <RevealWrapper>
               <h2
                 className="font-display font-extrabold text-off-white leading-tight mb-4 reveal reveal-delay-1"
-                style={{ fontSize: 'clamp(28px, 3.5vw, 52px)' }}
+                style={{ fontSize: '52px' }}
               >
                 Raising{' '}
                 <span className="text-coral">$6–8M</span>
@@ -98,7 +98,7 @@ export function TheRaise() {
             >
               <h3
                 className="font-display font-extrabold text-off-white leading-tight mb-10"
-                style={{ fontSize: 'clamp(32px, 4vw, 56px)' }}
+                style={{ fontSize: '56px' }}
               >
                 Property operations
                 <br />
@@ -106,7 +106,7 @@ export function TheRaise() {
               </h3>
               <h3
                 className="font-display font-extrabold leading-tight"
-                style={{ fontSize: 'clamp(32px, 4vw, 56px)', color: '#E8452A' }}
+                style={{ fontSize: '56px', color: '#E8452A' }}
               >
                 Software becomes
                 <br />

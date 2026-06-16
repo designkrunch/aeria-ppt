@@ -79,7 +79,7 @@ export function Hero() {
           {/* Main headline */}
           <h1
             className="font-display font-extrabold text-off-white leading-[1.05] mb-8 reveal reveal-delay-2"
-            style={{ fontSize: 'clamp(44px, 6.5vw, 88px)' }}
+            style={{ fontSize: '88px' }}
           >
             The operating{' '}
             <span className="text-coral">system</span>

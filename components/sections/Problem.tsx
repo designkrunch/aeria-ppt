@@ -32,7 +32,7 @@ export function Problem() {
           <div className="section-label mb-6 reveal">The Problem</div>
           <h2
             className="font-display font-extrabold text-off-white leading-tight mb-6 reveal reveal-delay-1"
-            style={{ fontSize: 'clamp(32px, 4vw, 60px)' }}
+            style={{ fontSize: '60px' }}
           >
             A single building runs on{' '}
             <span className="text-coral">30+ disconnected tools</span>
