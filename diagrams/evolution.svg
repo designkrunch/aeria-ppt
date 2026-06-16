@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" role="img" aria-label="Three generations of CRE technology: Point Solutions, Tenant-Experience Platforms, and AI-Native Building OS">
+
+  <defs>
+    <linearGradient id="gen3-glow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1a1a1a"/>
+      <stop offset="100%" stop-color="#111"/>
+    </linearGradient>
+    <linearGradient id="accent-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f5330e" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#f5330e" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#f5330e" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="glow-filter">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="400" fill="#080808"/>
+
+  <!-- Timeline track -->
+  <line x1="60" y1="210" x2="1140" y2="210" stroke="#333" stroke-width="1.5" stroke-dasharray="6 4"/>
+
+  <!-- Progress arrow -->
+  <line x1="60" y1="210" x2="1130" y2="210" stroke="#222" stroke-width="2"/>
+  <polygon points="1140,210 1124,203 1124,217" fill="#333"/>
+
+  <!-- ===================== GEN 1 ===================== -->
+  <!-- Panel -->
+  <rect x="40" y="50" width="310" height="300" rx="12" fill="#0d0d0d" stroke="#222" stroke-width="1"/>
+
+  <!-- Gen label -->
+  <text x="60" y="88" font-family="'Inter', monospace" font-size="10" font-weight="600" letter-spacing="0.12em" fill="#444" text-transform="uppercase">GEN 1</text>
+
+  <!-- Title -->
+  <text x="60" y="116" font-family="'Plus Jakarta Sans', sans-serif" font-size="18" font-weight="600" fill="#666">Point Solutions</text>
+
+  <!-- Divider -->
+  <line x1="60" y1="130" x2="330" y2="130" stroke="#222" stroke-width="1"/>
+
+  <!-- Competitor list -->
+  <text x="60" y="162" font-family="'Archivo', sans-serif" font-size="13" fill="#444">Visitor Mgmt</text>
+  <text x="60" y="184" font-family="'Archivo', sans-serif" font-size="13" fill="#444">Parking Systems</text>
+  <text x="60" y="206" font-family="'Archivo', sans-serif" font-size="13" fill="#444">Helpdesk Tools</text>
+  <text x="60" y="228" font-family="'Archivo', sans-serif" font-size="13" fill="#444">Access Control</text>
+  <text x="60" y="250" font-family="'Archivo', sans-serif" font-size="13" fill="#444">Community Apps</text>
+
+  <!-- Description -->
+  <text x="60" y="300" font-family="'Archivo', sans-serif" font-size="12" fill="#383838">Digitized individual</text>
+  <text x="60" y="318" font-family="'Archivo', sans-serif" font-size="12" fill="#383838">workflows</text>
+
+  <!-- Timeline node -->
+  <circle cx="195" cy="210" r="6" fill="#333" stroke="#444" stroke-width="1.5"/>
+
+  <!-- ===================== GEN 2 ===================== -->
+  <!-- Panel -->
+  <rect x="445" y="50" width="310" height="300" rx="12" fill="#0d0d0d" stroke="#2a2a2a" stroke-width="1"/>
+
+  <!-- Gen label -->
+  <text x="465" y="88" font-family="'Inter', monospace" font-size="10" font-weight="600" letter-spacing="0.12em" fill="#555">GEN 2</text>
+
+  <!-- Title -->
+  <text x="465" y="116" font-family="'Plus Jakarta Sans', sans-serif" font-size="18" font-weight="600" fill="#777">Tenant-Experience</text>
+  <text x="465" y="138" font-family="'Plus Jakarta Sans', sans-serif" font-size="18" font-weight="600" fill="#777">Platforms</text>
+
+  <!-- Divider -->
+  <line x1="465" y1="152" x2="735" y2="152" stroke="#222" stroke-width="1"/>
+
+  <!-- Competitor list -->
+  <text x="465" y="178" font-family="'Archivo', sans-serif" font-size="13" fill="#555">HqO</text>
+  <text x="465" y="200" font-family="'Archivo', sans-serif" font-size="13" fill="#555">Equiem</text>
+  <text x="465" y="222" font-family="'Archivo', sans-serif" font-size="13" fill="#555">Anacity</text>
+  <text x="465" y="244" font-family="'Archivo', sans-serif" font-size="13" fill="#555">Veris · Mithriv</text>
+
+  <!-- Description -->
+  <text x="465" y="290" font-family="'Archivo', sans-serif" font-size="12" fill="#484848">Unified workflows</text>
+  <text x="465" y="308" font-family="'Archivo', sans-serif" font-size="12" fill="#484848">into one platform</text>
+
+  <!-- Warning callout -->
+  <rect x="465" y="320" width="265" height="18" rx="4" fill="#1a1006"/>
+  <text x="475" y="333" font-family="'Inter', monospace" font-size="10" fill="#664400">⚠ Humans still do the work</text>
+
+  <!-- Timeline node -->
+  <circle cx="600" cy="210" r="6" fill="#3a3a3a" stroke="#555" stroke-width="1.5"/>
+
+  <!-- ===================== GEN 3 ===================== -->
+  <!-- Panel glow -->
+  <rect x="848" y="44" width="314" height="312" rx="14" fill="#f5330e" opacity="0.06"/>
+
+  <!-- Panel -->
+  <rect x="850" y="46" width="310" height="308" rx="12" fill="url(#gen3-glow)" stroke="#f5330e" stroke-width="1.5" opacity="0.8"/>
+
+  <!-- Gen label -->
+  <text x="870" y="86" font-family="'Inter', monospace" font-size="10" font-weight="600" letter-spacing="0.12em" fill="#f5330e">GEN 3</text>
+
+  <!-- Title -->
+  <text x="870" y="116" font-family="'Plus Jakarta Sans', sans-serif" font-size="18" font-weight="700" fill="#fff">AI-Native Building</text>
+  <text x="870" y="138" font-family="'Plus Jakarta Sans', sans-serif" font-size="18" font-weight="700" fill="#fff">Operating Systems</text>
+
+  <!-- Divider accent -->
+  <line x1="870" y1="152" x2="1140" y2="152" stroke="#f5330e" stroke-width="1" opacity="0.4"/>
+
+  <!-- Aeria label -->
+  <text x="870" y="180" font-family="'Plus Jakarta Sans', sans-serif" font-size="22" font-weight="700" fill="#f5330e">Aeria</text>
+
+  <!-- Description -->
+  <text x="870" y="222" font-family="'Archivo', sans-serif" font-size="13" fill="#ccc">Agents perform the work</text>
+  <text x="870" y="244" font-family="'Archivo', sans-serif" font-size="13" fill="#ccc">Users request outcomes</text>
+  <text x="870" y="266" font-family="'Archivo', sans-serif" font-size="13" fill="#ccc">Buildings become intelligent</text>
+
+  <!-- Outcome highlight -->
+  <rect x="870" y="298" width="270" height="38" rx="6" fill="#1a0a08"/>
+  <text x="880" y="315" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600" fill="#f5330e">20%+ ops cost reduction</text>
+  <text x="880" y="330" font-family="'Inter', monospace" font-size="10" fill="#888">Modeled target</text>
+
+  <!-- Timeline node — glowing -->
+  <circle cx="1005" cy="210" r="8" fill="#f5330e" opacity="0.25"/>
+  <circle cx="1005" cy="210" r="5" fill="#f5330e"/>
+
+  <!-- Connector arrows between generations -->
+  <path d="M 360 210 L 435 210" stroke="#333" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <path d="M 765 210 L 840 210" stroke="#555" stroke-width="1.5" marker-end="url(#arrowhead2)"/>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#333"/>
+    </marker>
+    <marker id="arrowhead2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#555"/>
+    </marker>
+  </defs>
+
+</svg>
