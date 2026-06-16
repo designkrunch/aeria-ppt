@@ -1,0 +1,262 @@
+/* ============================================================
+   AERIA — Diagram Styles
+   CSS support for SVG diagrams and inline diagram components
+   ============================================================ */
+
+/* ----------------------------------------------------------
+   VENDOR RING (Slide 2)
+   ---------------------------------------------------------- */
+
+.vendor-ring {
+  position: relative;
+  width: 480px;
+  height: 480px;
+  flex-shrink: 0;
+}
+
+.vendor-ring__track {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px dashed #1f1f1f;
+}
+
+.vendor-ring__track--inner {
+  inset: 48px;
+}
+
+.vendor-ring__center {
+  position: absolute;
+  inset: 140px;
+  border-radius: 50%;
+  background: #080808;
+  border: 1px solid #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+.vendor-ring__center-text {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: var(--fw-medium);
+  color: var(--color-accent);
+  line-height: 1.4;
+}
+
+.vendor-ring__label {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
+/* ----------------------------------------------------------
+   OS RING (Slide 6)
+   ---------------------------------------------------------- */
+
+.os-ring {
+  position: relative;
+  width: 520px;
+  height: 520px;
+  flex-shrink: 0;
+}
+
+.os-ring__outer {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid #1a1a1a;
+}
+
+.os-ring__accent-ribbon {
+  position: absolute;
+  inset: 8px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: var(--color-accent);
+  border-right-color: rgba(245,51,14,0.3);
+  opacity: 0.6;
+}
+
+.os-ring__center {
+  position: absolute;
+  inset: 100px;
+  border-radius: 50%;
+  background: #0a0a0a;
+  border: 1px solid #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.25rem;
+  text-align: center;
+}
+
+.os-ring__label {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: var(--fw-semibold);
+  color: rgba(255,255,255,0.6);
+  white-space: nowrap;
+}
+
+/* ----------------------------------------------------------
+   FUNNEL (Slide 14)
+   ---------------------------------------------------------- */
+
+.funnel-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+}
+
+.funnel-step-visual {
+  position: relative;
+}
+
+.funnel-step-bar {
+  background: #0d0d0d;
+  border: 1px solid #1a1a1a;
+  border-radius: 4px;
+  margin: 3px 0;
+  transition: margin 0.3s;
+  padding: 0.875rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Each step narrows to simulate funnel */
+.funnel-step-visual:nth-child(1) .funnel-step-bar { margin: 3px 0; }
+.funnel-step-visual:nth-child(2) .funnel-step-bar { margin: 3px 2%; }
+.funnel-step-visual:nth-child(3) .funnel-step-bar { margin: 3px 5%; }
+.funnel-step-visual:nth-child(4) .funnel-step-bar { margin: 3px 10%; }
+.funnel-step-visual:nth-child(5) .funnel-step-bar { margin: 3px 18%; background: rgba(245,51,14,0.12); border-color: rgba(245,51,14,0.25); }
+
+/* ----------------------------------------------------------
+   BEFORE/AFTER BAR (Slide 11)
+   ---------------------------------------------------------- */
+
+.before-after {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+.ba-label {
+  color: var(--color-muted);
+  white-space: nowrap;
+}
+
+.ba-track {
+  flex: 1;
+  height: 6px;
+  background: var(--color-border);
+  border-radius: var(--radius-pill);
+  position: relative;
+  overflow: visible;
+}
+
+.ba-old {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 6px;
+  width: 100%;
+  background: var(--color-black-300);
+  border-radius: var(--radius-pill);
+}
+
+.ba-new {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 6px;
+  width: 28%;
+  background: var(--color-accent);
+  border-radius: var(--radius-pill);
+}
+
+/* ----------------------------------------------------------
+   STACKED BAR (Slides 13, 18)
+   ---------------------------------------------------------- */
+
+.stacked-bar {
+  display: flex;
+  height: 24px;
+  border-radius: 4px;
+  overflow: hidden;
+  gap: 1px;
+}
+
+.stacked-bar__seg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  color: rgba(255,255,255,0.6);
+  transition: flex 0.3s;
+}
+
+.stacked-bar__seg--saas { background: #222; }
+.stacked-bar__seg--commerce { background: var(--color-accent); opacity: 0.8; }
+
+/* ----------------------------------------------------------
+   MARKET CHART (Slide 14 context panel)
+   ---------------------------------------------------------- */
+
+.market-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.market-row {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.market-row__label {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.55);
+  width: 180px;
+  flex-shrink: 0;
+}
+
+.market-row__bar {
+  height: 8px;
+  border-radius: var(--radius-pill);
+  background: #1a1a1a;
+  overflow: hidden;
+  flex: 1;
+}
+
+.market-row__fill {
+  height: 100%;
+  border-radius: var(--radius-pill);
+  background: #333;
+}
+
+.market-row__fill--accent { background: var(--color-accent); }
+
+.market-row__value {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--color-muted);
+  width: 60px;
+  text-align: right;
+}

@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aeria — The AI-Native Building OS</title>
+
+  <!-- Design tokens and styles -->
+  <link rel="stylesheet" href="src/tokens.css">
+  <link rel="stylesheet" href="src/base.css">
+  <link rel="stylesheet" href="src/slides.css">
+  <link rel="stylesheet" href="src/diagrams.css">
+
+  <style>
+    #deck-scaler { overflow: hidden; }
+
+    #nav-prev, #nav-next {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 150;
+      background: rgba(0,0,0,0.35);
+      color: rgba(255,255,255,0.7);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      font-size: 1.25rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    #nav-prev { left: 1rem; }
+    #nav-next { right: 1rem; }
+    body:hover #nav-prev,
+    body:hover #nav-next { opacity: 1; }
+    #nav-prev:hover, #nav-next:hover {
+      background: rgba(245,51,14,0.7);
+      color: #fff;
+      border-color: transparent;
+    }
+    #nav-prev:focus-visible, #nav-next:focus-visible {
+      outline: 2px solid #f5330e;
+      outline-offset: 2px;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Progress bar -->
+<div id="progress-bar" role="progressbar" aria-valuemin="1" aria-valuemax="18" aria-valuenow="1"></div>
+
+<!-- Slide counter -->
+<div id="slide-counter" aria-live="polite">1 / 18</div>
+
+<!-- Nav arrows -->
+<button id="nav-prev" aria-label="Previous slide">&#8592;</button>
+<button id="nav-next" aria-label="Next slide">&#8594;</button>
+
+<!-- Overview mode -->
+<div id="overview" role="dialog" aria-label="Slide overview" aria-modal="true">
+  <div id="overview-grid"></div>
+  <button id="overview-close" aria-label="Close overview">ESC to close</button>
+</div>
+
+<!-- Presentation -->
+<div id="presentation">
+  <div id="deck">
+    <div id="deck-scaler">
+
+<!-- ================================================================
+     SLIDE 1 — TITLE / COVER
+     ================================================================ -->
+<section class="slide slide--dark" id="slide-1" data-slide="1" aria-label="Slide 1: Title">
+
+  <!-- Decorative layers: blob → building photo → starburst (z-order: 0, 1, 2) -->
+  <img class="cover__blob" src="assets/gradient-blob.png" loading="eager" alt="" aria-hidden="true">
+  <img class="cover__building" src="assets/building-photo.png" loading="eager" alt="" aria-hidden="true">
+  <img class="cover__starburst" src="assets/starburst.svg" loading="eager" alt="" aria-hidden="true">
+
+  <!-- Top bar: wordmark + backer credit -->
+  <div class="cover__topbar">
+    <div class="cover__wordmark">Aeria</div>
+    <div class="cover__presented">Backed by Kalaari · Foundamental<br>AC Ventures · AL Trust</div>
+  </div>
+
+  <!-- Mid section: category label + one-liner -->
+  <div class="cover__mid">
+    <span class="cover__cat">The AI-Native Building OS</span>
+    <p class="cover__tagline">One platform that turns a disconnected building into an intelligent,<br>self-operating asset — lowering cost while compounding the revenue that defends rent.</p>
+  </div>
+
+  <!-- Bottom: massive headline (left) + year/metro (right) -->
+  <div class="cover__bottom">
+    <h1 class="cover__headline">
+      The AI-native<br>
+      <span class="t-accent">operating system</span><br>
+      for commercial<br>
+      real estate.
+    </h1>
+    <div class="cover__right-meta">
+      <span class="cover__year">2026</span>
+      <span class="cover__metro">Bengaluru · Mumbai</span>
+      <p class="cover__traction">15M sq ft &nbsp;·&nbsp; 3 marquee developers &nbsp;·&nbsp; 12 months post-MVP</p>
+    </div>
+  </div>
+
+  <div class="speaker-notes">
+    We're not a tenant app. We're the operating system commercial buildings run on —
+    the control tower for the owner, the daily OS for everyone inside.
+    Live across 15M sq ft in 12 months.
+  </div>
+</section>
+
+<!-- ================================================================
+     SLIDE 2 — THE BROKEN BUILDING
+     ================================================================ -->
+<section class="slide slide--fresh" id="slide-2" data-slide="2" aria-label="Slide 2: The broken building">
+  <div class="sl-logo">Aeria</div>
+  <div class="sl-inner">
+    <h2 class="sl-h1 sl-h1--sm">A single building runs on <span class="accent">30+</span> disconnected tools — and no one sees the whole.</h2>
+    <p class="sl-sub">Owners aren't short of software. They're drowning in it — and money leaks at every seam.</p>
+    <div class="sl-rule"></div>
+    <div class="sl-body">
+      <div class="sl-cols-55-45">
+
+        <!-- Left: arrow bullets -->
+        <div class="sl-col">
+          <div class="sl-bullets">
+            <div class="sl-bullet">
+              <span class="sl-bullet__arrow">→</span>
+              <div class="sl-bullet__body">
+                <strong>No portfolio insight</strong> — every system is a silo
+                <span class="sl-bullet__sub">Different dashboards for every function, no unified view across the asset</span>
+              </div>
+            </div>
+            <div class="sl-bullet">
+              <span class="sl-bullet__arrow">→</span>
+              <div class="sl-bullet__body">
+                <strong>Leaked monetization</strong> — commerce and F&amp;B value walks out un-captured
+                <span class="sl-bullet__sub">Footfall generates zero ancillary revenue under incumbent tools</span>
+              </div>
+            </div>
+            <div class="sl-bullet">
+              <span class="sl-bullet__arrow">→</span>
+              <div class="sl-bullet__body">
+                <strong>Fractured experience</strong> + duplicated cost across every stakeholder
+                <span class="sl-bullet__sub">Multiple apps, multiple teams, multiple contracts — nothing connects</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: vendor ring visualization -->
+        <div class="sl-col" style="align-items:center;justify-content:center;">
+          <div class="vendor-ring">
+            <div class="vendor-ring__track"></div>
+            <div class="vendor-ring__center">
+              <span class="vendor-ring__center-text">No connected<br>source of truth</span>
+            </div>
+            <span class="vendor-ring__label" style="top:3%;left:50%">Visitor</span>
+            <span class="vendor-ring__label" style="top:12%;left:77%">Parking</span>
+            <span class="vendor-ring__label" style="top:35%;left:96%">Deliveries</span>
+            <span class="vendor-ring__label" style="top:62%;left:94%">F&amp;B</span>
+            <span class="vendor-ring__label" style="top:85%;left:77%">Access</span>
+            <span class="vendor-ring__label" style="top:97%;left:50%">Billing</span>
+            <span class="vendor-ring__label" style="top:85%;left:23%">Community</span>
+            <span class="vendor-ring__label" style="top:62%;left:5%">Deals</span>
+            <span class="vendor-ring__label" style="top:35%;left:6%">Payments</span>
+            <span class="vendor-ring__label" style="top:12%;left:23%">Feedback</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="speaker-notes">
+    Owners aren't short of software — they're drowning in it.
+    30+ tools, none talking, no portfolio view, money leaking at every seam.
+    That fragmentation is the opportunity.
+  </div>
+</section>
+
+<!-- ================================================================
+     SLIDE 3 — THE FOUR OUTCOMES
+     ================================================================ -->
+<section class="slide slide--fresh" id="slide-3" data-slide="3" aria-label="Slide 3: The four outcomes">
+  <div class="sl-logo">Aeria</div>
+  <div class="sl-inner">
+    <h2 class="sl-h1 sl-h1--sm">Owners don't buy software.<br>They buy <span class="accent">four outcomes.</span></h2>
+    <div class="sl-rule"></div>
+    <div class="sl-full">
+
+      <!-- 2×2 outcome grid -->
+      <div class="outcomes-grid">
+        <div class="outcome-tile">
+          <span class="outcome-tile__tag">Retention</span>
+          <div class="outcome-tile__name">Convenience</div>
+          <div class="outcome-tile__impact">Frictionless day → tenant retention &amp; occupancy</div>
+        </div>
+        <div class="outcome-tile">
+          <span class="outcome-tile__tag">Risk</span>
+          <div class="outcome-tile__name">Safety</div>
+          <div class="outcome-tile__impact">Trusted, governed building → de-risked asset, attracts big logos</div>
+        </div>
+        <div class="outcome-tile">
+          <span class="outcome-tile__tag">Revenue</span>
+          <div class="outcome-tile__name">Community &amp; Commerce</div>
+          <div class="outcome-tile__impact">Engagement + ancillary revenue → new revenue without raising rent</div>
+        </div>
+        <div class="outcome-tile">
+          <span class="outcome-tile__tag">Value</span>
+          <div class="outcome-tile__name">Intelligence</div>
+          <div class="outcome-tile__impact">Portfolio-level proof → asset value &amp; pricing power</div>
+        </div>
+      </div>
+
+      <!-- Comparison bar -->
+      <div class="comp-section" style="margin-top:1.5rem;">
+        <div class="comp-row">
+          <span class="comp-label">Legacy tools</span>
+          <div class="comp-track"><div class="comp-fill" style="width:28%"></div></div>
+          <span class="comp-tag">1–2 outcomes</span>
+        </div>
+        <div class="comp-row">
+          <span class="comp-label comp-label--aeria">Aeria</span>
+          <div class="comp-track"><div class="comp-fill comp-fill--aeria" style="width:100%"></div></div>
+          <span class="comp-tag comp-tag--aeria">All four</span>
+        </div>
+        <p style="font-family:var(--font-body);font-size:0.9375rem;color:#888;margin-top:0.75rem;">
+          Legacy tools improve one or two. Aeria delivers all four — as one operating system.
+        </p>
+      </div>
+
+    </div>
+  </div>
+  <div class="speaker-notes">
+    Every asset is judged on four things.
+    Point tools hit one or two; we deliver all four through one system.
+    Owners buy outcomes, not features.
+  </div>
+</section>
+
+<!-- ================================================================
+     SLIDE 4 — EVOLUTION OF CRE TECHNOLOGY
+     ================================================================ -->
+<section class="slide slide--fresh-alt" id="slide-4" data-slide="4" aria-label="Slide 4: Three generations of CRE technology">
+  <div class="sl-logo">Aeria</div>
+  <div class="sl-inner">
+    <h2 class="sl-h1">Three generations.<br>Aeria is the <span class="accent">third.</span></h2>
+    <p class="sl-sub">Previous generations digitized workflows. The third generation executes them.</p>
+    <div class="sl-rule"></div>
+    <div class="sl-full">
+      <div class="evolution-wrap">
+        <img src="diagrams/evolution.svg" alt="Three generations of CRE technology" loading="eager">
+      </div>
+    </div>
+    <div class="sl-key-strip">
+      Previous generations digitized workflows. Aeria executes them.
+    </div>
+  </div>
+  <div class="speaker-notes">
+    The category evolved: first we digitized individual workflows;
+    then we bundled them into platforms — but humans still ran them.
+    The third generation runs the building with agents.
+    We're not a better Gen 2. We're Gen 3.
+    This is the slide partners screenshot.
+  </div>
+</section>
+
+<!-- ================================================================
+     SLIDE 5 — WHY AI CHANGES CRE
+     ================================================================ -->
+<section class="slide slide--fresh" id="slide-5" data-slide="5" aria-label="Slide 5: Why AI changes CRE">
+  <div class="sl-logo">Aeria</div>
+  <div class="sl-inner">
+    <h2 class="sl-h1 sl-h1--sm">In an agent-driven building,<br>the <span class="accent">dashboard</span> is the liability.</h2>
+    <div class="sl-rule"></div>
+    <div class="sl-body">
+      <div class="sl-cols-55-45">
+
+        <!-- Left: flow diagrams -->
+        <div class="sl-col" style="gap:2rem;">
+          <!-- Software era -->
+          <div>
+            <p class="flow-era-label flow-era--grey">Software Era</p>
+            <div class="flow-row">
+              <div class="flow-node flow-node--grey">Human</div>
+              <span class="flow-arrow">→</span>
+              <div class="flow-node flow-node--grey">Software</div>
+              <span class="flow-arrow">→</span>
+              <div class="flow-node flow-node--grey">Action</div>
+            </div>
+          </div>
+
+          <p class="value-caption">value migrates down the stack ↓</p>
+
+          <!-- AI era -->
+          <div>
+            <p class="flow-era-label flow-era--teal">AI Era</p>
+            <div class="flow-row">
+              <div class="flow-node flow-node--teal" style="font-size:0.8125rem;">Human</div>
+              <span class="flow-arrow flow-arrow--teal">→</span>
+              <div class="flow-node flow-node--teal-lg">Agent</div>
+              <span class="flow-arrow flow-arrow--teal">→</span>
+              <div class="flow-node flow-node--teal" style="font-size:0.8125rem;">Workflow</div>
+              <span class="flow-arrow flow-arrow--teal">→</span>
+              <div class="flow-node flow-node--teal" style="font-size:0.8125rem;">Outcome</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: 3 numbered points -->
+        <div class="sl-col" style="gap:2rem;padding-left:3rem;border-left:1px solid #ebebeb;">
+          <div class="sl-num-point">
+            <span class="sl-num-point__num">1</span>
+            <p class="sl-num-point__text"><strong>Software-centric ops don't lower cost</strong> — they relocate dashboards.</p>
+          </div>
+          <div class="sl-num-point">
+            <span class="sl-num-point__num">2</span>
+            <p class="sl-num-point__text"><strong>Agent-centric ops are newly possible:</strong> models crossed the capability / cost line.</p>
+          </div>
+          <div class="sl-num-point">
+            <span class="sl-num-point__num">3</span>
+            <p class="sl-num-point__text">Value migrates from the interface to the <strong>orchestration, data and physical actions</strong> beneath it — exactly where Aeria is built.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="speaker-notes">
+    Old world: every task runs through a person driving a screen.
+    New world: you state the outcome, the agent does the work.
+    When that happens, the value isn't the interface —
+    it's the orchestration, data, and physical actions underneath.
+    That's our architecture.
+  </div>
+</section>
+
+<!-- ================================================================
+     SLIDE 6 — THE SOLUTION: ONE AI-NATIVE BUILDING OS
+     ================================================================ -->
+<section class="slide slide--fresh" id="slide-6" data-slide="6" aria-label="Slide 6: One AI-native Building OS">
+  <div class="sl-logo">Aeria</div>
+  <div class="sl-inner">
+    <h2 class="sl-h1 sl-h1--sm">One operating system.<br>Four outcomes. <span class="accent">Agents throughout.</span></h2>
+    <p class="sl-sub">Aeria collapses 30+ tools into one system of record across every stakeholder — with an AI agent inside each function.</p>
+    <div class="sl-rule"></div>
+    <div class="sl-body">
+      <div class="sl-cols-40-60">
+
+        <!-- Left: OS ring + thesis cards -->
+        <div class="sl-col" style="align-items:center;gap:2rem;">
+          <div class="os-ring">
+            <div class="os-ring__outer"></div>
+            <div class="os-ring__accent"></div>
+            <div class="os-ring__teal"></div>
+            <div class="os-ring__center">
+              <span class="os-ring__name">Aeria</span>
+              <span class="os-ring__sub">One system of record</span>
+            </div>
+            <span class="os-ring__label" style="top:6%;left:50%">Convenience</span>
+            <span class="os-ring__label os-ring__label--accent" style="top:50%;left:105%">Intelligence</span>
+            <span class="os-ring__label" style="top:94%;left:50%">Community &amp; Commerce</span>
+            <span class="os-ring__label" style="top:50%;left:-5%">Safety</span>
+          </div>
+          <div style="width:100%;">
+            <div class="thesis-card">
+              <div class="thesis-num">−20%</div>
+              <div class="thesis-label">ops cost &nbsp;<span class="sl-tag-e">Modeled</span></div>
+            </div>
+            <div class="thesis-card">
+              <div class="thesis-num" style="color:#0ea5e9;">+15%</div>
+              <div class="thesis-label">revenue without raising rent &nbsp;<span class="sl-tag-e">Modeled</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: thesis text -->
+        <div class="sl-col" style="justify-content:center;gap:2rem;">
+          <div class="sl-bullets">
+            <div class="sl-bullet">
+              <span class="sl-bullet__arrow">→</span>
+              <div class="sl-bullet__body">
+                <strong>Every agent connected</strong> — visitor, reception, security, community, insight, occupancy
+              </div>
+            </div>
+            <div class="sl-bullet">
+              <span class="sl-bullet__arrow">→</span>
+              <div class="sl-bullet__body">
+                <strong>Every stakeholder on one OS</strong> — owners, managers, security, front office, occupants
+              </div>
+            </div>
+            <div class="sl-bullet">
+              <span class="sl-bullet__arrow">→</span>
+              <div class="sl-bullet__body">
+                The building doesn't just get digitized. <strong>It gets operated.</strong>
+              </div>
+            </div>
+          </div>
+          <p style="font-family:var(--font-body);font-size:1rem;color:#888;padding-top:1.25rem;border-top:1px solid #ebebeb;">
+            From a platform you operate to a building that operates itself.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="speaker-notes">
+    Here's the resolution to the broken-building slide.
+    One system of record for every stakeholder, four outcomes, an agent inside each function.
+    Thesis: 20% lower cost, 15% more revenue without touching rent. We prove both next.
+  </div>
+</section>
+
+<!-- ================================================================
+     SLIDE 7 — PILLARS I: RUNS & PROTECTS
+     ================================================================ -->
+<section class="slide slide--fresh" id="slide-7" data-slide="7" aria-label="Slide 7: Pillars — Runs and Protects">
+  <div class="sl-logo">Aeria</div>
+  <div class="sl-inner">
+    <h2 class="sl-h1">The building <span class="accent">runs itself</span> — and guards itself.</h2>
+    <div class="sl-rule"></div>
+    <div class="sl-body">
+      <div class="pillar-split">
+
+        <!-- CONVENIENCE -->
+        <div class="pillar-panel">
+          <div class="pillar-panel__name">Convenience</div>
+          <div class="pillar-row">
+            <div class="pillar-row__label">Problem</div>
+            <div class="pillar-row__text">Entry, parking, food, booking fragmented across many apps</div>
+          </div>
+          <div class="pillar-row">
+            <div class="pillar-row__label">Aeria</div>
+            <div class="pillar-row__text">One mobile pass + integrated VMS, parking, POS, booking</div>
+          </div>
+          <div class="pillar-row">
+            <div class="pillar-row__label">Agents</div>
+            <div class="pillar-agents">
+              <span class="sl-pill sl-pill--black">Visitor ✓ Live</span>
+              <span class="sl-pill sl-pill--black">Reception ✓ Live</span>
+              <span class="sl-pill sl-pill--grey">Integration ◷ Build</span>
+            </div>
+          </div>
+          <div class="pillar-row">
+            <div class="pillar-row__label">Value &nbsp;<span class="sl-tag-m">Measured</span> &nbsp;<span class="sl-tag-e">Brigade</span></div>
+            <div class="pillar-hero-stat">
+              <span class="pillar-hero-stat__num">10→&lt;3</span>
+              <span class="pillar-hero-stat__label">min check-in · 100% cardless · 60% turnstile adoption</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SAFETY -->
+        <div class="pillar-panel">
+          <div class="pillar-panel__name">Safety</div>
+          <div class="pillar-row">
+            <div class="pillar-row__label">Problem</div>
+            <div class="pillar-row__text">Manual patrols, blind spots, slow incidents, paper logs</div>
+          </div>
+          <div class="pillar-row">
+            <div class="pillar-row__label">Aeria</div>
+            <div class="pillar-row__text">Unified security ops + digital logs + SOS + access governance</div>
+          </div>
+          <div class="pillar-row">
+            <div class="pillar-row__label">Agents</div>
+            <div class="pillar-agents">
+              <span class="sl-pill sl-pill--grey">Security / Guard ◷ Build</span>
+              <span class="sl-pill sl-pill--grey">Compliance ◷ Build</span>
+            </div>
+          </div>
+          <div class="pillar-row">
+            <div class="pillar-row__label">Value &nbsp;<span class="sl-tag-m">Measured</span> &nbsp;<span class="sl-tag-e">Brigade</span></div>
+            <div class="pillar-hero-stat">
+              <span class="pillar-hero-stat__num">100%</span>
+              <span class="pillar-hero-stat__label">complaint resolution via supervisor dashboard</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="speaker-notes">
+    Two operational pillars.
+    Convenience: one pass replaces a dozen apps; Brigade cut check-in from ten minutes
+    to under three, fully cardless.
+    Safety: unified security ops, 100% complaint resolution.
+    This is the manpower the 20% cost reduction comes from.
+  </div>
+</section>
+
+<!-- ================================================================
+     SLIDE 8 — PILLARS II: EARNS & LEARNS
+     ================================================================ -->
+<section class="slide slide--fresh" id="slide-8" data-slide="8" aria-label="Slide 8: Pillars — Earns and Learns">
+  <div class="sl-logo">Aeria</div>
+  <div class="sl-inner">
+    <h2 class="sl-h1">The building <span class="accent">earns</span> — and gets smarter every day.</h2>
+    <div class="sl-rule"></div>
+    <div class="sl-body">
+      <div class="pillar-split">
+
+        <!-- COMMUNITY & COMMERCE -->
+        <div class="pillar-panel">
+          <div class="pillar-panel__name">Community &amp; Commerce</div>
+          <div class="pillar-row">
+            <div class="pillar-row__label">Problem</div>
+            <div class="pillar-row__text">Low engagement, un-monetized footfall, no corporate-deal infra</div>
+          </div>
+          <div class="pillar-row">
+            <div class="pillar-row__label">Aeria</div>
+            <div class="pillar-row__text">Events + comms + deals + vouchers + POS, commission on every transaction</div>
+          </div>
+          <div class="pillar-row">
+            <div class="pillar-row__label">Agents</div>
+            <div class="pillar-agents">
+              <span class="sl-pill sl-pill--black">Community ✓ Live</span>
+              <span class="sl-pill sl-pill--black">Commerce ✓ Live</span>
+            </div>
+          </div>
+          <div class="pillar-row">
+            <div class="pillar-row__label">Value &nbsp;<span class="sl-tag-m">Measured</span> &nbsp;<span class="sl-tag-e">Prestige</span></div>
+            <div class="pillar-hero-stat">
+              <span class="pillar-hero-stat__num">₹14.56L</span>
+              <span class="pillar-hero-stat__label">F&amp;B revenue · 7,000+ orders · 19 outlets · 50% new users · 16,000+ deals redeemed</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- BUILDING INTELLIGENCE -->
+        <div class="pillar-panel">
+          <div class="pillar-panel__name">Building Intelligence</div>
+          <div class="pillar-row">
+            <div class="pillar-row__label">Problem</div>
+            <div class="pillar-row__text">No portfolio view, static dashboards, gut decisions</div>
+          </div>
+          <div class="pillar-row">
+            <div class="pillar-row__label">Aeria</div>
+            <div class="pillar-row__text">Unified analytics + revenue dashboard + answers on command</div>
+          </div>
+          <div class="pillar-row">
+            <div class="pillar-row__label">Agents</div>
+            <div class="pillar-agents">
+              <span class="sl-pill sl-pill--grey">Insight ◷ Build</span>
+              <span class="sl-pill sl-pill--grey">Occupancy ◷ Build</span>
+              <span class="sl-pill sl-pill--grey">Portfolio ◷ Build</span>
+            </div>
+          </div>
+          <div class="pillar-row">
+            <div class="pillar-row__label">Value &nbsp;<span class="sl-tag-e">Modeled</span></div>
+            <div class="pillar-hero-stat">
+              <span class="pillar-hero-stat__num">+15%</span>
+              <span class="pillar-hero-stat__label">revenue target · powered by the data flywheel →</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="speaker-notes">
+    The differentiated half.
+    Commerce: the same footfall becomes recurring revenue —
+    Prestige did ₹14.56 lakh in food orders, half from brand-new users,
+    and we take a cut of every transaction.
+    Intelligence: every interaction compounds into portfolio data.
+    That's the 15% revenue thesis.
+  </div>
+</section>
+
+<!-- ================================================================
+     SLIDE 9 — THE AI WORKFORCE (FLAGSHIP)
+     ================================================================ -->
+<section class="slide slide--fresh" id="slide-9" data-slide="9" aria-label="Slide 9: AI workforce">
+  <div class="sl-logo">Aeria</div>
+  <div class="sl-inner">
+    <h2 class="sl-h1">An AI workforce — across the <span class="accent">entire building.</span></h2>
+    <p class="sl-sub">Six agents live in production. Six in build. Every interaction feeds the next.</p>
+    <div class="sl-rule"></div>
+    <div class="sl-full">
+      <div class="workforce-wrap">
+        <img src="diagrams/workforce.svg" alt="AI workforce across the entire building" loading="eager">
+      </div>
+      <div class="workforce-legend">
+        <div class="legend-item"><span class="legend-dot-live"></span> Live in production (6)</div>
+        <div class="legend-item"><span class="legend-dot-next"></span> In build / piloting (6)</div>
+        <div style="margin-left:auto;font-family:var(--font-mono);font-size:0.6875rem;color:#aaa;">
+          <span style="color:#f5330e;font-weight:700;">20%+</span> manpower / ops-cost reduction &nbsp;<span class="sl-tag-e">Modeled target</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="speaker-notes">
+    This is the heart of it.
+    Agents across the whole building — entry, operations, safety, commerce, intelligence.
+    Six are live in production today; six are in build.
+    And every interaction feeds the next: data becomes intelligence becomes automation
+    becomes better outcomes. That loop is the moat.
+  </div>
+</section>
+
+<!-- ================================================================
+     SLIDE 10 — THE PLATFORM ECOSYSTEM
+     ================================================================ -->
+<section class="slide slide--fresh" id="slide-10" data-slide="10" aria-label="Slide 10: Platform ecosystem">
+  <div class="sl-logo">Aeria</div>
+  <div class="sl-inner">
+    <h2 class="sl-h1 sl-h1--sm">Aeria isn't a mobile app.<br>It's an operating system for <span class="accent">everyone in the building.</span></h2>
+    <div class="sl-rule"></div>
+    <div class="sl-full">
+      <div class="stakeholder-lanes">
+        <div class="stakeholder-lane">
+          <span class="lane-name">Occupants</span>
+          <div class="lane-apps">
+            <span class="app-chip app-chip--accent">Xperience Hub</span>
+          </div>
+        </div>
+        <div class="stakeholder-lane">
+          <span class="lane-name">Property Teams</span>
+          <div class="lane-apps">
+            <span class="app-chip">Admin Dashboard</span>
+            <span class="app-chip">Facilities App</span>
+          </div>
+        </div>
+        <div class="stakeholder-lane">
+          <span class="lane-name">Security Teams</span>
+          <div class="lane-apps">
+            <span class="app-chip">Security App</span>
+            <span class="app-chip">Scan Pro</span>
+          </div>
+        </div>
+        <div class="stakeholder-lane">
+          <span class="lane-name">Front Office</span>
+          <div class="lane-apps">
+            <span class="app-chip">Reception App</span>
+            <span class="app-chip">Guest Tablet</span>
+            <span class="app-chip">Visitor Portal</span>
+          </div>
+        </div>
+        <div class="stakeholder-lane">
+          <span class="lane-name">Commerce</span>
+          <div class="lane-apps">
+            <span class="app-chip">POS Platform</span>
+            <span class="app-chip">Delivery Runner App</span>
+          </div>
+        </div>
+      </div>
+      <div class="rails-strip">
+        <strong>Built on proprietary rails:</strong> own VMS · DMS · CAFM · CMS · microservices · open API · zero-knowledge onboarding (no occupant PII)
+      </div>
+    </div>
+  </div>
+  <div class="speaker-notes">
+    An app serves one user; an OS serves all of them.
+    Eleven purpose-built surfaces, one for every role.
+    That breadth is the defensibility: complete data, compounding switching cost,
+    and workflows that only close because everyone's on one system.
+    Built on our own rails, with zero-PII onboarding.
+  </div>
+</section>
+
+<!-- ================================================================
+     SLIDE 11 — PROOF IN PRODUCTION
+     ================================================================ -->
+<section class="slide slide--fresh" id="slide-11" data-slide="11" aria-label="Slide 11: Proof in production">
+  <div class="sl-logo">Aeria</div>
+  <div class="sl-inner">
+    <h2 class="sl-h1 sl-h1--sm">Already running two of India's<br>largest tech campuses.</h2>
+    <div class="sl-rule"></div>
+    <div class="sl-full">
+      <div class="campus-cols">
+
+        <!-- Brigade -->
+        <div class="campus-col">
+          <div>
+            <div class="campus-name">Brigade Tech Garden</div>
+            <div class="campus-size">3M sq ft SEZ</div>
+          </div>
+          <div class="stat-grid-3">
+            <div class="sl-stat-tile">
+              <div class="sl-stat-tile__num">8,686</div>
+              <div class="sl-stat-tile__label">Downloads</div>
+            </div>
+            <div class="sl-stat-tile">
+              <div class="sl-stat-tile__num">4,840</div>
+              <div class="sl-stat-tile__label">MAU</div>
+            </div>
+            <div class="sl-stat-tile">
+              <div class="sl-stat-tile__num">91K</div>
+              <div class="sl-stat-tile__label">Visitors since Jun'25</div>
+            </div>
+            <div class="sl-stat-tile">
+              <div class="sl-stat-tile__num">&lt;3 min</div>
+              <div class="sl-stat-tile__label">Check-in (was 10)</div>
+            </div>
+            <div class="sl-stat-tile">
+              <div class="sl-stat-tile__num">100%</div>
+              <div class="sl-stat-tile__label">Cardless entry</div>
+            </div>
+            <div class="sl-stat-tile">
+              <div class="sl-stat-tile__num">₹6.5L</div>
+              <div class="sl-stat-tile__label">F&amp;B revenue</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Prestige -->
+        <div class="campus-col">
+          <div>
+            <div class="campus-name">Prestige Tech Park</div>
+            <div class="campus-size">7.5M sq ft</div>
+          </div>
+          <div class="stat-grid-3">
+            <div class="sl-stat-tile">
+              <div class="sl-stat-tile__num">14K+</div>
+              <div class="sl-stat-tile__label">Downloads</div>
+            </div>
+            <div class="sl-stat-tile">
+              <div class="sl-stat-tile__num">7,768</div>
+              <div class="sl-stat-tile__label">MAU</div>
+            </div>
+            <div class="sl-stat-tile">
+              <div class="sl-stat-tile__num">7,000+</div>
+              <div class="sl-stat-tile__label">F&amp;B orders</div>
+            </div>
+            <div class="sl-stat-tile">
+              <div class="sl-stat-tile__num">₹14.56L</div>
+              <div class="sl-stat-tile__label">F&amp;B revenue</div>
+            </div>
+            <div class="sl-stat-tile">
+              <div class="sl-stat-tile__num">50%</div>
+              <div class="sl-stat-tile__label">New / unique users</div>
+            </div>
+            <div class="sl-stat-tile">
+              <div class="sl-stat-tile__num">19</div>
+              <div class="sl-stat-tile__label">Outlets live</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="campus-callout">
+        Prestige took experience + commerce only — no access integration — and still drove <strong>₹14.56L in F&amp;B</strong>.
+        The commerce engine stands alone; integration is modular by design.
+      </div>
+    </div>
+  </div>
+  <div class="speaker-notes">
+    Not a pilot story. Two marquee developers, 10.5 million square feet live.
+    Brigade cut check-in from ten minutes to under three, fully cardless.
+    Prestige: ₹14.56 lakh in food orders — and notice, they didn't even take our access system.
+    That proves the commerce engine stands on its own.
+  </div>
+</section>
+
+<!-- ================================================================
+     SLIDE 12 — TRACTION SNAPSHOT
+     ================================================================ -->
+<section class="slide slide--fresh" id="slide-12" data-slide="12" aria-label="Slide 12: Traction snapshot">
+  <div class="sl-logo">Aeria</div>
+  <div class="sl-inner">
+    <h2 class="sl-h1 sl-h1--sm">12 months post-MVP: 15M sq ft,<br>3 marquee logos, <span class="accent">contracts that compound.</span></h2>
+    <div class="sl-rule"></div>
+    <div class="sl-full">
+
+      <!-- 6 stat tiles -->
+      <div class="traction-stats">
+        <div class="sl-stat-tile">
+          <div class="sl-stat-tile__num">15M</div>
+          <div class="sl-stat-tile__label">sq ft deployed &amp; secured</div>
+        </div>
+        <div class="sl-stat-tile">
+          <div class="sl-stat-tile__num">$300K</div>
+          <div class="sl-stat-tile__label">Live ARR</div>
+        </div>
+        <div class="sl-stat-tile">
+          <div class="sl-stat-tile__num">~$2M</div>
+          <div class="sl-stat-tile__label">Contracted + expanded ARR by Jul'26</div>
+        </div>
+        <div class="sl-stat-tile">
+          <div class="sl-stat-tile__num">5</div>
+          <div class="sl-stat-tile__label">Top developers in pipeline</div>
+        </div>
+        <div class="sl-stat-tile">
+          <div class="sl-stat-tile__num">28</div>
+          <div class="sl-stat-tile__label">People</div>
+        </div>
+        <div class="sl-stat-tile">
+          <div class="sl-stat-tile__num">12</div>
+          <div class="sl-stat-tile__label">Months since MVP</div>
+        </div>
+      </div>
+
+      <!-- ARR split -->
+      <div class="arr-section">
+        <div class="arr-row">
+          <span class="arr-label">~$1.2M &nbsp; signed / contracted (PO in hand)</span>
+          <div class="arr-track"><div class="arr-fill" style="width:62%"></div></div>
+        </div>
+        <div class="arr-row">
+          <span class="arr-label">~$0.8M &nbsp; LOI + advanced-stage by Jul'26</span>
+          <div class="arr-track"><div class="arr-fill arr-fill--soft" style="width:38%"></div></div>
+        </div>
+        <p class="arr-note">
+          At 12 months post-MVP, the signal is sq ft deployed and 3-year lock-ins — not in-year ARR.
+          Both flagships are already expanding their portfolios with us.
+        </p>
+      </div>
+
+      <!-- Investor row -->
+      <div class="investor-row">
+        <span class="investor-name">Kalaari</span>
+        <span class="investor-name">Foundamental</span>
+        <span class="investor-name">AC Ventures</span>
+        <span class="investor-name">AL Trust</span>
+      </div>
+
+    </div>
+  </div>
+  <div class="speaker-notes">
+    Yes, live ARR is $300K — we're twelve months past MVP.
+    The number that matters is what's locked: about $2 million contracted and expanding
+    on three-year terms, $1.2M with POs in hand.
+    Fifteen million square feet deployed or secured, both flagships already expanding.
+  </div>
+</section>
+
+<!-- ================================================================
+     SLIDE 13 — BUSINESS MODEL & LAND-EXPAND ENGINE
+     ================================================================ -->
+<section class="slide slide--fresh" id="slide-13" data-slide="13" aria-label="Slide 13: Business model">
+  <div class="sl-logo">Aeria</div>
+  <div class="sl-inner">
+    <h2 class="sl-h1 sl-h1--sm">Two revenue lines, a 3-year lock-in,<br>and an account that <span class="accent">compounds 10×.</span></h2>
+    <div class="sl-rule"></div>
+    <div class="sl-body">
+      <div class="sl-cols-40-60">
+
+        <!-- Left: staircase diagram -->
+        <div class="sl-col" style="justify-content:center;">
+          <div class="staircase">
+            <div class="stair-step">
+              <div class="stair-label">Beachhead · 1–3M sq ft</div>
+              <div class="stair-revenue">+ SaaS (psft)</div>
+            </div>
+            <div class="stair-step">
+              <div class="stair-label">Portfolio · 25–50M sq ft</div>
+              <div class="stair-revenue">+ SaaS + Commerce $$</div>
+            </div>
+            <div class="stair-step">
+              <div class="stair-label">Portfolio of portfolios</div>
+              <div class="stair-revenue">+ SaaS + Commerce $$ (compounding)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: 4 business panels -->
+        <div class="sl-col" style="justify-content:center;">
+          <div class="biz-panels">
+            <div class="biz-panel">
+              <div class="biz-panel__name">Pricing</div>
+              <div class="biz-panel__text">~₹0.25 psft/month · ≈3–4¢ psft/yr · +5–10%/yr · 3-yr lock-ins vs 15–25¢ incumbents</div>
+            </div>
+            <div class="biz-panel">
+              <div class="biz-panel__name">Commerce</div>
+              <div class="biz-panel__text">Commission on F&amp;B POS · deals · vouchers · leasing · managed-office transactions</div>
+            </div>
+            <div class="biz-panel">
+              <div class="biz-panel__name">Low CAC / B2B2C</div>
+              <div class="biz-panel__text">One developer sale → tens of thousands of occupants. White-label drives retention.</div>
+            </div>
+            <div class="biz-panel" style="background:#f5330e;border-color:#f5330e;">
+              <div class="biz-panel__name" style="color:rgba(255,255,255,0.82);">Land-Expanded</div>
+              <div class="biz-panel__text" style="color:rgba(255,255,255,0.92);">~25–40% inventory CAGR per developer. Both flagships already expanded (n=2, early evidence).</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="speaker-notes">
+    Two lines: per-square-foot SaaS at a fraction of global pricing on three-year locks,
+    plus a commission on the commerce we generate.
+    The growth engine is land-and-expand — land a 1–3M sq ft pilot,
+    capture the 25–50M sq ft portfolio.
+    Both flagships are already expanding. That's net revenue retention above 100%.
+  </div>
+</section>
+
+<!-- ================================================================
+     SLIDE 14 — MARKET & PORTFOLIO CAPTURE
+     ================================================================ -->
+<section class="slide slide--fresh" id="slide-14" data-slide="14" aria-label="Slide 14: Market">
+  <div class="sl-logo">Aeria</div>
+  <div class="sl-inner">
+    <h2 class="sl-h1 sl-h1--sm">Win 15% of global funds at a quarter<br>of their inventory — and that's <span class="accent">$100M.</span></h2>
+    <div class="sl-rule"></div>
+    <div class="sl-body">
+      <div class="sl-cols-55-45">
+
+        <!-- Left: funnel -->
+        <div class="sl-col" style="justify-content:center;">
+          <div class="funnel-list">
+            <div class="funnel-item">
+              <div class="funnel-bar funnel-bar--1"><span class="funnel-bar__text">~300 global large asset managers</span></div>
+            </div>
+            <div class="funnel-arrow-row">↓</div>
+            <div class="funnel-item">
+              <div class="funnel-bar funnel-bar--2"><span class="funnel-bar__text">~30B sq ft under their control</span></div>
+            </div>
+            <div class="funnel-arrow-row">↓</div>
+            <div class="funnel-item">
+              <div class="funnel-bar funnel-bar--3"><span class="funnel-bar__text">15% of funds</span></div>
+              <span class="funnel-item__stat">45 funds</span>
+            </div>
+            <div class="funnel-arrow-row">↓</div>
+            <div class="funnel-item">
+              <div class="funnel-bar funnel-bar--4"><span class="funnel-bar__text">25% of inventory</span></div>
+              <span class="funnel-item__stat">1.1B sq ft</span>
+            </div>
+            <div class="funnel-arrow-row">↓</div>
+            <div class="funnel-item">
+              <div class="funnel-bar funnel-bar--5"><span class="funnel-bar__text">× 6.5¢ psft = $100M ARR</span></div>
+              <span class="funnel-item__stat" style="color:#f5330e;">$100M ARR</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: TAM panel -->
+        <div class="sl-col" style="justify-content:center;">
+          <div class="tam-panel">
+            <div class="tam-title">Asian TAM</div>
+            <div class="tam-row">
+              <span class="tam-cat">Tenant Experience</span>
+              <span class="tam-val">$3.5B</span>
+            </div>
+            <div class="tam-row">
+              <span class="tam-cat">Workplace Experience</span>
+              <span class="tam-val">$6.2B</span>
+            </div>
+            <div class="tam-row">
+              <span class="tam-cat">Services &amp; Commissions</span>
+              <span class="tam-val">~$100B</span>
+            </div>
+            <div class="tam-row tam-row--total">
+              <span class="tam-cat">Total</span>
+              <span class="tam-val">~$110B</span>
+            </div>
+            <div class="proof-line">
+              Already cracked <strong>3 Indian accounts &gt;50M sq ft each</strong> at 3–4¢ psft.
+              Office &gt;68% of commercial. Global office-mgmt revenue &gt;$50B/yr.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="speaker-notes">
+    The Asian market is ~$110 billion, but I'll be disciplined about the path.
+    Bottoms-up: a few hundred funds control most Grade-A inventory.
+    Win 15% of them at a quarter of their space, priced below the incumbents.
+    We've already landed three Indian accounts north of 50 million square feet each.
+  </div>
+</section>
+
+<!-- ================================================================
+     SLIDE 15 — DEFENSIBILITY & THE DATA FLYWHEEL
+     ================================================================ -->
+<section class="slide slide--fresh" id="slide-15" data-slide="15" aria-label="Slide 15: Defensibility">
+  <div class="sl-logo">Aeria</div>
+  <div class="sl-inner">
+    <h2 class="sl-h1 sl-h1--sm">Why this compounds —<br>and why a model <span class="accent">can't copy it.</span></h2>
+    <div class="sl-rule"></div>
+    <div class="sl-body">
+      <div class="sl-cols-50-50">
+
+        <!-- Left: flywheel diagram -->
+        <div class="sl-col" style="align-items:center;justify-content:center;">
+          <div class="flywheel-wrap">
+            <img src="diagrams/flywheel.svg" alt="Data flywheel and moats" loading="eager">
+          </div>
+        </div>
+
+        <!-- Right: 6 moats -->
+        <div class="sl-col" style="justify-content:center;">
+          <div class="moats-list">
+            <div class="moat-item">
+              <span class="moat-num">1</span>
+              <span class="moat-body"><strong>Workflow</strong> — 30 tools → one system of record (rip-out cost)</span>
+            </div>
+            <div class="moat-item">
+              <span class="moat-num">2</span>
+              <span class="moat-body"><strong>Data / flywheel</strong> — proprietary cross-portfolio behaviour, accumulating</span>
+            </div>
+            <div class="moat-item">
+              <span class="moat-num">3</span>
+              <span class="moat-body"><strong>Distribution</strong> — 3-yr locks, white-label, land-and-expand</span>
+            </div>
+            <div class="moat-item">
+              <span class="moat-num">4</span>
+              <span class="moat-body"><strong>Integration / hardware</strong> — "you can't integrate a turnstile with a prompt"</span>
+            </div>
+            <div class="moat-item">
+              <span class="moat-num">5</span>
+              <span class="moat-body"><strong>Compliance</strong> — zero-knowledge onboarding, no occupant PII</span>
+            </div>
+            <div class="moat-item">
+              <span class="moat-num">6</span>
+              <span class="moat-body"><strong>AI</strong> — domain orchestration + physical actions on commodity models</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="sl-key-strip">
+      Agents are a feature. The rails, contracts, and flywheel are the product.
+    </div>
+  </div>
+  <div class="speaker-notes">
+    Anyone can call an LLM; no one can shortcut turnstile integrations,
+    3-year developer contracts, and cross-portfolio data.
+    The flywheel, the rails, the distribution — that's the product.
+    Agents sit on top of it.
+  </div>
+</section>
+
+<!-- ================================================================
+     SLIDE 16 — PIPELINE & CONVERSION MATH
+     ================================================================ -->
+<section class="slide slide--fresh" id="slide-16" data-slide="16" aria-label="Slide 16: Pipeline">
+  <div class="sl-logo">Aeria</div>
+  <div class="sl-inner">
+    <h2 class="sl-h1 sl-h1--sm">A de-risked path from $2M contracted<br>to <span class="accent">portfolio-scale ARR.</span></h2>
+    <div class="sl-rule"></div>
+    <div class="sl-body">
+      <div class="sl-cols-55-45">
+
+        <!-- Left: pipeline funnel -->
+        <div class="sl-col" style="justify-content:center;">
+          <div class="pipeline-list">
+            <div class="pipeline-item">
+              <div class="pipeline-bar pipeline-bar--1"><span class="pipeline-bar__label">Active &amp; secured</span></div>
+              <span class="pipeline-item__stat">36.5M sq ft</span>
+            </div>
+            <div class="pipeline-item">
+              <div class="pipeline-bar pipeline-bar--2"><span class="pipeline-bar__label">Pilots initiated</span></div>
+              <span class="pipeline-item__stat">9M sq ft</span>
+            </div>
+            <div class="pipeline-item">
+              <div class="pipeline-bar pipeline-bar--3"><span class="pipeline-bar__label">Advanced secured</span></div>
+              <span class="pipeline-item__stat">220M sq ft</span>
+            </div>
+            <div class="pipeline-item">
+              <div class="pipeline-bar pipeline-bar--4"><span class="pipeline-bar__label">Advanced pilots</span></div>
+              <span class="pipeline-item__stat">54M sq ft</span>
+            </div>
+            <div class="pipeline-item">
+              <div class="pipeline-bar pipeline-bar--5"><span class="pipeline-bar__label">Active proposals</span></div>
+              <span class="pipeline-item__stat">~150M sq ft</span>
+            </div>
+          </div>
+          <p style="font-family:var(--font-body);font-size:0.875rem;color:#888;margin-top:1.25rem;line-height:1.65;">
+            Apply the expansion rate already observed at Brigade &amp; Prestige — the ramp is mechanical, not hopeful.
+          </p>
+        </div>
+
+        <!-- Right: developer logos -->
+        <div class="sl-col" style="justify-content:flex-start;">
+          <p class="sl-sec-label">Named advanced accounts</p>
+          <div class="dev-grid">
+            <div class="dev-chip">Embassy</div>
+            <div class="dev-chip">DLF</div>
+            <div class="dev-chip">RMZ</div>
+            <div class="dev-chip">Hines</div>
+            <div class="dev-chip">Mapletree</div>
+            <div class="dev-chip">Keppel Land</div>
+            <div class="dev-chip">Sekura</div>
+            <div class="dev-chip">Godrej</div>
+            <div class="dev-chip">Max Estates</div>
+            <div class="dev-chip">Bagmane</div>
+            <div class="dev-chip">Meenakshi</div>
+            <div class="dev-chip">DivyaSree</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="speaker-notes">
+    36.5 million square feet secured, 220 million in advanced discussions
+    with the biggest names in Asian real estate.
+    Apply the expansion rate we've already seen — conservatively —
+    and the path to portfolio-scale ARR is mechanical.
+  </div>
+</section>
+
+<!-- ================================================================
+     SLIDE 17 — TEAM
+     ================================================================ -->
+<section class="slide slide--fresh" id="slide-17" data-slide="17" aria-label="Slide 17: Team">
+  <div class="sl-logo">Aeria</div>
+  <div class="sl-inner">
+    <h2 class="sl-h1 sl-h1--sm">A founder who's already built<br>and <span class="accent">exited proptech at scale.</span></h2>
+    <div class="sl-rule"></div>
+    <div class="sl-full">
+
+      <div class="founder-cards">
+
+        <!-- Priyanka -->
+        <div class="founder-card">
+          <div class="founder-avatar">P</div>
+          <div>
+            <div class="founder-name">Priyanka Gera</div>
+            <div class="founder-role">Founder &amp; CEO</div>
+          </div>
+          <div class="founder-bullets">
+            <div class="founder-bullet">2× founder</div>
+            <div class="founder-bullet">Co-founded OxfordCaps — Asia's largest tech-enabled student housing → ~$20M ARR, exited 2021</div>
+            <div class="founder-bullet">Ex-KPMG · Ex-JLL</div>
+            <div class="founder-bullet">B.Arch + M.Plan (SPA Delhi) · Finance (IIM-C) · 20 years · 5 countries</div>
+          </div>
+          <div class="founder-retires">↳ Retires: enterprise RE distribution</div>
+        </div>
+
+        <!-- Awnish -->
+        <div class="founder-card">
+          <div class="founder-avatar">A</div>
+          <div>
+            <div class="founder-name">Awnish Kumar</div>
+            <div class="founder-role">CTO &amp; Co-founder</div>
+          </div>
+          <div class="founder-bullets">
+            <div class="founder-bullet">3× founder · IIT-Bombay</div>
+            <div class="founder-bullet">Ex-VP Tech, Lodha</div>
+            <div class="founder-bullet">Ex-CTO, Ukeyo (acq. Livspace)</div>
+            <div class="founder-bullet">Built a zero-knowledge platform at scale (600K users)</div>
+          </div>
+          <div class="founder-retires">↳ Retires: AI / privacy architecture</div>
+        </div>
+
+        <!-- Piyush -->
+        <div class="founder-card">
+          <div class="founder-avatar">P</div>
+          <div>
+            <div class="founder-name">Piyush Kateja</div>
+            <div class="founder-role">Head of Product &amp; Sales</div>
+          </div>
+          <div class="founder-bullets">
+            <div class="founder-bullet">IIM Kozhikode</div>
+            <div class="founder-bullet">Ex-PM, Anarock</div>
+            <div class="founder-bullet">10 years proptech / hospitality</div>
+          </div>
+          <div class="founder-retires">↳ Retires: product execution</div>
+        </div>
+
+      </div>
+
+      <div class="shipped-strip">
+        <strong>Already shipped:</strong> $20M ARR exit &nbsp;·&nbsp; zero-knowledge platform at scale &nbsp;·&nbsp; proptech product
+      </div>
+
+    </div>
+  </div>
+  <div class="speaker-notes">
+    The two hardest risks here are RE distribution and AI/privacy architecture.
+    Priyanka built and exited Asia's largest tech-enabled student housing.
+    Awnish built a zero-knowledge platform at scale and was CTO at Lodha.
+    We've done the hard version before.
+  </div>
+</section>
+
+<!-- ================================================================
+     SLIDE 18 — THE ASK & VISION
+     ================================================================ -->
+<section class="slide slide--fresh" id="slide-18" data-slide="18" aria-label="Slide 18: The ask and vision">
+  <div class="sl-logo">Aeria</div>
+  <div class="sl-inner">
+    <h2 class="sl-h1">Raising <span class="accent">$6–8M</span> to turn three flagships into a category.</h2>
+    <div class="sl-rule"></div>
+    <div class="ask-split">
+
+      <!-- Left: ask details -->
+      <div class="ask-left">
+        <div>
+          <div class="ask-h">Use of Funds</div>
+          <div class="alloc-item">
+            <div class="alloc-row"><span class="alloc-label">GTM &amp; portfolio capture</span><span class="alloc-pct">40%</span></div>
+            <div class="alloc-track"><div class="alloc-fill" style="width:40%"></div></div>
+          </div>
+          <div class="alloc-item">
+            <div class="alloc-row"><span class="alloc-label">Product &amp; AI</span><span class="alloc-pct">30%</span></div>
+            <div class="alloc-track"><div class="alloc-fill" style="width:30%"></div></div>
+          </div>
+          <div class="alloc-item">
+            <div class="alloc-row"><span class="alloc-label">Workplace Experience</span><span class="alloc-pct">15%</span></div>
+            <div class="alloc-track"><div class="alloc-fill" style="width:15%"></div></div>
+          </div>
+          <div class="alloc-item">
+            <div class="alloc-row"><span class="alloc-label">International</span><span class="alloc-pct">15%</span></div>
+            <div class="alloc-track"><div class="alloc-fill" style="width:15%"></div></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="ask-h">Milestones to Next Round</div>
+          <div class="milestone-list">
+            <div class="milestone-item"><span class="milestone-arrow">→</span>Convert ≥3 advanced developers to signed portfolios</div>
+            <div class="milestone-item"><span class="milestone-arrow">→</span>~$5–6M live ARR</div>
+            <div class="milestone-item"><span class="milestone-arrow">→</span>Ship the 6 roadmap agents to production</div>
+            <div class="milestone-item"><span class="milestone-arrow">→</span>Launch Workplace Experience (WeX)</div>
+            <div class="milestone-item"><span class="milestone-arrow">→</span>Land first international logo</div>
+          </div>
+        </div>
+
+        <div class="runway-note">Runway: ~24 months &nbsp;·&nbsp; Break-even target: ~Q4 2026</div>
+      </div>
+
+      <!-- Right: vision statement -->
+      <div class="ask-right">
+        <div class="vision-line vision-line--1">Property operations<br>become software.</div>
+        <div class="vision-line vision-line--2">Software becomes<br>an autonomous building.</div>
+        <div class="runway-vision">aeria.ai &nbsp;·&nbsp; nikhil@aeria.ai</div>
+      </div>
+
+    </div>
+  </div>
+  <div class="speaker-notes">
+    $6–8 million to do three things: capture the 220 million square feet in advanced
+    discussions, ship the agent roadmap from in-build to live, and launch Workplace
+    Experience plus international. That's the path from three flagships to the category.
+  </div>
+</section>
+
+    </div><!-- /deck-scaler -->
+  </div><!-- /deck -->
+</div><!-- /presentation -->
+
+<script src="src/presentation.js"></script>
+</body>
+</html>

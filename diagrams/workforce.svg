@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-label="Aeria AI Workforce — agents across the entire building from Entry to Intelligence">
+
+  <defs>
+    <linearGradient id="band-dark" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0a0a0a"/>
+      <stop offset="100%" stop-color="#111"/>
+    </linearGradient>
+    <linearGradient id="loop-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#0ea5e9" stop-opacity="0.2"/>
+    </linearGradient>
+    <!-- Teal glow for loop arrow -->
+    <filter id="teal-glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <!-- Red glow for stat -->
+    <filter id="red-glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="600" fill="#050505"/>
+
+  <!-- ===================== BUILDING BANDS ===================== -->
+  <!-- Each band: 110px tall, stacked. 5 bands × 110 = 550px, top margin 25px -->
+
+  <!-- Band 5: INTELLIGENCE (top) -->
+  <rect x="20" y="25" width="960" height="100" rx="8" fill="#0d0d0d" stroke="#1a1a1a" stroke-width="1"/>
+  <!-- Zone label -->
+  <text x="40" y="65" font-family="'Inter', monospace" font-size="9" font-weight="600" letter-spacing="0.12em" fill="#444" text-transform="uppercase">INTELLIGENCE</text>
+  <!-- Agents -->
+  <g font-family="'Archivo', sans-serif" font-size="13" fill="#ccc">
+    <text x="40" y="90">Insight Agent</text>
+    <circle cx="148" cy="86" r="4" fill="none" stroke="#666" stroke-width="1.5"/>
+
+    <text x="190" y="90">Occupancy Agent</text>
+    <circle cx="310" cy="86" r="4" fill="none" stroke="#666" stroke-width="1.5"/>
+
+    <text x="350" y="90">Portfolio Agent</text>
+    <circle cx="458" cy="86" r="4" fill="none" stroke="#666" stroke-width="1.5"/>
+  </g>
+  <!-- In build pills -->
+  <rect x="160" y="78" width="62" height="16" rx="8" fill="transparent" stroke="#444" stroke-width="1"/>
+  <text x="168" y="90" font-family="'Inter', monospace" font-size="9" fill="#666">In build ◷</text>
+  <rect x="320" y="78" width="62" height="16" rx="8" fill="transparent" stroke="#444" stroke-width="1"/>
+  <text x="328" y="90" font-family="'Inter', monospace" font-size="9" fill="#666">In build ◷</text>
+  <rect x="468" y="78" width="62" height="16" rx="8" fill="transparent" stroke="#444" stroke-width="1"/>
+  <text x="476" y="90" font-family="'Inter', monospace" font-size="9" fill="#666">In build ◷</text>
+
+  <!-- Band 4: COMMUNITY & COMMERCE -->
+  <rect x="20" y="135" width="960" height="100" rx="8" fill="#0f0f0f" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="40" y="175" font-family="'Inter', monospace" font-size="9" font-weight="600" letter-spacing="0.12em" fill="#444">COMMUNITY &amp; COMMERCE</text>
+  <g font-family="'Archivo', sans-serif" font-size="13" fill="#ccc">
+    <text x="40" y="200">Community Agent</text>
+    <circle cx="166" cy="196" r="5" fill="#0ea5e9"/>
+    <text x="208" y="200">Commerce Agent</text>
+    <circle cx="322" cy="196" r="5" fill="#0ea5e9"/>
+  </g>
+  <!-- Live pills -->
+  <rect x="178" y="188" width="54" height="16" rx="8" fill="#0ea5e9" fill-opacity="0.15" stroke="#0ea5e9" stroke-width="1" stroke-opacity="0.5"/>
+  <text x="186" y="200" font-family="'Inter', monospace" font-size="9" fill="#0ea5e9">Live ✓</text>
+  <rect x="334" y="188" width="54" height="16" rx="8" fill="#0ea5e9" fill-opacity="0.15" stroke="#0ea5e9" stroke-width="1" stroke-opacity="0.5"/>
+  <text x="342" y="200" font-family="'Inter', monospace" font-size="9" fill="#0ea5e9">Live ✓</text>
+
+  <!-- Band 3: SAFETY -->
+  <rect x="20" y="245" width="960" height="100" rx="8" fill="#0d0d0d" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="40" y="285" font-family="'Inter', monospace" font-size="9" font-weight="600" letter-spacing="0.12em" fill="#444">SAFETY</text>
+  <g font-family="'Archivo', sans-serif" font-size="13" fill="#ccc">
+    <text x="40" y="310">Security / Agentic Guard</text>
+    <circle cx="226" cy="306" r="4" fill="none" stroke="#666" stroke-width="1.5"/>
+    <text x="268" y="310">Compliance Agent</text>
+    <circle cx="384" cy="306" r="4" fill="none" stroke="#666" stroke-width="1.5"/>
+  </g>
+  <rect x="238" y="298" width="62" height="16" rx="8" fill="transparent" stroke="#444" stroke-width="1"/>
+  <text x="246" y="310" font-family="'Inter', monospace" font-size="9" fill="#666">In build ◷</text>
+  <rect x="396" y="298" width="62" height="16" rx="8" fill="transparent" stroke="#444" stroke-width="1"/>
+  <text x="404" y="310" font-family="'Inter', monospace" font-size="9" fill="#666">In build ◷</text>
+
+  <!-- Band 2: OPERATIONS -->
+  <rect x="20" y="355" width="960" height="100" rx="8" fill="#0f0f0f" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="40" y="395" font-family="'Inter', monospace" font-size="9" font-weight="600" letter-spacing="0.12em" fill="#444">OPERATIONS</text>
+  <g font-family="'Archivo', sans-serif" font-size="13" fill="#ccc">
+    <text x="40" y="420">Facility Agent</text>
+    <circle cx="138" cy="416" r="4" fill="none" stroke="#666" stroke-width="1.5"/>
+    <text x="180" y="420">Helpdesk Agent</text>
+    <circle cx="288" cy="416" r="5" fill="#0ea5e9"/>
+    <text x="330" y="420">Booking Agent</text>
+    <circle cx="430" cy="416" r="5" fill="#0ea5e9"/>
+  </g>
+  <rect x="150" y="408" width="62" height="16" rx="8" fill="transparent" stroke="#444" stroke-width="1"/>
+  <text x="158" y="420" font-family="'Inter', monospace" font-size="9" fill="#666">In build ◷</text>
+  <rect x="300" y="408" width="54" height="16" rx="8" fill="#0ea5e9" fill-opacity="0.15" stroke="#0ea5e9" stroke-width="1" stroke-opacity="0.5"/>
+  <text x="308" y="420" font-family="'Inter', monospace" font-size="9" fill="#0ea5e9">Live ✓</text>
+  <rect x="442" y="408" width="54" height="16" rx="8" fill="#0ea5e9" fill-opacity="0.15" stroke="#0ea5e9" stroke-width="1" stroke-opacity="0.5"/>
+  <text x="450" y="420" font-family="'Inter', monospace" font-size="9" fill="#0ea5e9">Live ✓</text>
+
+  <!-- Band 1: ENTRY (bottom) -->
+  <rect x="20" y="465" width="960" height="100" rx="8" fill="#0d0d0d" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="40" y="505" font-family="'Inter', monospace" font-size="9" font-weight="600" letter-spacing="0.12em" fill="#444">ENTRY</text>
+  <g font-family="'Archivo', sans-serif" font-size="13" fill="#ccc">
+    <text x="40" y="530">Visitor Agent</text>
+    <circle cx="132" cy="526" r="5" fill="#0ea5e9"/>
+    <text x="174" y="530">Reception Agent</text>
+    <circle cx="282" cy="526" r="5" fill="#0ea5e9"/>
+  </g>
+  <rect x="144" y="518" width="54" height="16" rx="8" fill="#0ea5e9" fill-opacity="0.15" stroke="#0ea5e9" stroke-width="1" stroke-opacity="0.5"/>
+  <text x="152" y="530" font-family="'Inter', monospace" font-size="9" fill="#0ea5e9">Live ✓</text>
+  <rect x="294" y="518" width="54" height="16" rx="8" fill="#0ea5e9" fill-opacity="0.15" stroke="#0ea5e9" stroke-width="1" stroke-opacity="0.5"/>
+  <text x="302" y="530" font-family="'Inter', monospace" font-size="9" fill="#0ea5e9">Live ✓</text>
+
+  <!-- ===================== DATA FLYWHEEL LOOP (right side) ===================== -->
+  <!-- Vertical loop arrow connecting all bands -->
+  <path d="M 1010 565 C 1100 565 1150 500 1150 300 C 1150 100 1100 35 1010 35"
+        stroke="#0ea5e9" stroke-width="2" fill="none" stroke-dasharray="5 4" opacity="0.6"/>
+
+  <!-- Loop arrow head at top -->
+  <polygon points="1010,25 1000,42 1020,42" fill="#0ea5e9" opacity="0.6"/>
+
+  <!-- Loop step labels (right side) -->
+  <text x="1060" y="175" font-family="'Inter', monospace" font-size="11" fill="#0ea5e9" opacity="0.8">data →</text>
+  <text x="1060" y="295" font-family="'Inter', monospace" font-size="11" fill="#0ea5e9" opacity="0.8">intelligence →</text>
+  <text x="1060" y="415" font-family="'Inter', monospace" font-size="11" fill="#0ea5e9" opacity="0.8">automation →</text>
+  <text x="1060" y="520" font-family="'Inter', monospace" font-size="11" fill="#0ea5e9" opacity="0.8">outcomes →</text>
+
+  <!-- ===================== OUTCOME STAT (bottom callout) ===================== -->
+  <rect x="20" y="575" width="280" height="16" rx="4" fill="#1a0804" stroke="#f5330e" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="30" y="588" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="600" fill="#f5330e">20%+ manpower / ops-cost reduction</text>
+  <text x="318" y="588" font-family="'Inter', monospace" font-size="9" fill="#666">Modeled target</text>
+
+  <!-- ===================== LEGEND ===================== -->
+  <circle cx="680" cy="583" r="5" fill="#0ea5e9"/>
+  <text x="692" y="588" font-family="'Inter', monospace" font-size="10" fill="#888">Live in production (6)</text>
+  <circle cx="850" cy="583" r="5" fill="none" stroke="#666" stroke-width="1.5"/>
+  <text x="862" y="588" font-family="'Inter', monospace" font-size="10" fill="#666">In build / piloting (6)</text>
+
+</svg>
